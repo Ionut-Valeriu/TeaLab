@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--Metas-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- va fi explicat când ajungem la CSS -->
     <meta name="keywords" content="tea, teas, teahouse, tea delivery, relaxation, warm atmosphere, tea subscriptions, tealab, TeaLab">
@@ -11,15 +12,15 @@
         Pentru favicon transparent
         <meta name="msapplication-TileColor" content="...culoarea aleasa de voi...">
     -->
-
     <!--Favicon links-->
     <link rel="icon" type="image/png" href="./resource/images/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./resource/images/favicon/favicon.svg" />
     <link rel="shortcut icon" href="./resource/images/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="./resource/images/favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="MyWebSite" />
+    <meta content="TeaLab" name="apple-mobile-web-app-title"/>
     <link rel="manifest" href="./resource/images/favicon/site.webmanifest" />
 
+    <!--Title-->
     <title>TeaLab</title>
 </head>
 <body>
@@ -42,14 +43,48 @@
         </nav>
     </header>
     <main>
-        <aside id="description2">
+        <section id="desc">
             <h2>Welcome to <em>TeaLab</em> – Your Ultimate Teahouse Experience</h2>
+
             <p>At <b>TeaLab</b>, we blend tradition with innovation to bring you the finest <b>teas</b> in a cozy and <b>warm atmosphere</b>. Whether you're looking for a peaceful moment of <b>relaxation</b> or a refreshing break, our <b>teahouse</b> is the perfect place to unwind and enjoy carefully selected <b>teas</b> from around the world.</p>
-            <p>For those who love the convenience of enjoying their favorite flavors at home, our <b>tea delivery</b> service ensures that a premium selection of <b>teas</b> is always within reach. Want to explore new blends regularly? Our tea subscriptions offer a curated experience, delivering exceptional <b>teas</b> right to your doorstep.</p>
+
+            <p>For those who love the convenience of enjoying their favorite flavors at home, our <b>tea delivery</b>
+                service ensures that a premium selection of <b>teas</b> is always within reach.</p>
+
+            <p><strong>Want to explore new blends regularly?</strong> Our <dfn>tea subscriptions</dfn> offer a curated
+                experience, delivering exceptional <b>teas</b> right to your doorstep.</p>
+
             <p>Step into <b>TeaLab</b>, where every cup is a journey, every sip is a moment of peace, and every visit feels like home.</p>
-            <p><i>"Tea is nothing but this: First you heat the water, then you make the tea. Then you drink it properly. That is all you need to know."</i> – <em>Sen no Rikyū</em> (japanese tea master, founder of the tea ceremony in its present form.)
-            </p>
-        </aside>
+
+            <blockquote cite="https://wildteaqi.com/blogs/tea-lifestyle/taoist-temple-tea-and-ceremony">
+                <q>Tea is the elixir of life.</q>
+                - Lao Tzu
+            </blockquote>
+
+            <!--            <p><i>"Tea is nothing but this: First you heat the water, then you make the tea. Then you drink it properly. That is all you need to know."</i> – <em>Sen no Rikyū</em> (japanese tea master, founder of the tea ceremony in its present form.)-->
+            <!--            </p>-->
+
+            <p>You like our favicon? Good news! Download it <a download="ceva.jpg"
+                                                               href="./resource/images/favicon.jpeg">here</a> for free!</p>
+        </section>
+        <section id="tutorials">
+            <h2>Tutorials</h2>
+            <p>Here you have some good tutorials for beginners.</p>
+
+            <div class="container-iframe">
+                <div class="iframe-tabs">
+                    <a href="https://www.youtube.com/embed/6hMsU71YHk4" target="ifr-video">Why tea is good?</a>
+                    <a href="https://www.youtube.com/embed/hsUn31NLbLk" target="ifr-video">Beginner's guide!</a>
+                </div>
+                <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0" height="320"
+                        name="ifr-video"
+                        src="https://www.youtube.com/embed/6hMsU71YHk4"
+                        width="640">
+                    Your browser does not support iframes. :(
+                </iframe>
+            </div>
+        </section>
+
         <section id="products">
             <h2>Products</h2>
             <p>Here we have our products.</p>
@@ -108,7 +143,7 @@
             <h2>General info</h2>
             <p>Some general info.</p>
             <section id="providers">
-                <p>Main provider: <a href="https://dorelplant.ro/">Dorel Plant</a></p>
+                <p>Main provider: <a href="https://dorelplant.ro/" target="_blank">Dorel Plant</a></p>
             </section>
             <section id="program">
                 <h3>Program</h3>
@@ -119,15 +154,20 @@
             <section id="contact">
                 <h3>Contact</h3>
             </section>
+            <section id="bibliography">
+                <p>Bibliography</p>
+                <ul>
+                    <li><a href="https://comenzi.farmaciatei.ro/" target="_blank">Farmacia Tei</a></li>
+                    <li><a href="https://dorelplant.ro/" target="_blank">Dorel Plant</a></li>
+                </ul>
+            </section>
         </section>
 
-        <a href="./resource/images/favicon.jpg" download="ceva.jpg">Download favicon</a>
+
     </main>
     <footer>
         Go to <a href="#">Top</a>
-        
-        Bibliography
-        <a href="https://comenzi.farmaciatei.ro/">Farmacia Tei</a>
+
 
     </footer>
 </body>
