@@ -3,7 +3,7 @@
 <head>
     <!--Metas-->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- va fi explicat când ajungem la CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="keywords" content="tea, teas, teahouse, tea delivery, relaxation, warm atmosphere, tea subscriptions, tealab, TeaLab">
     <meta name="description" content="Discover a cozy tea house offering a curated selection of premium teas, handcrafted accessories, and immersive tasting experiences. Enjoy expertly brewed teas, explore our collection, and join exclusive tea workshops and events.">
     <meta name="author" content="Valeriu-Ionut Tablet">
@@ -25,6 +25,7 @@
 </head>
 <body>
     <header>
+
         <h1>TeaLab</h1>
         <nav>
             <ul>
@@ -35,14 +36,16 @@
                         <li><a href="#gifts&sub">Gifts & subscriptions</a></li>
                     </ul>
                 </li>
-                <li><a href="#services">Services</a>
 
-                </li>
+                <li><a href="#services">Services</a></li>
+
                 <li><a href="#info">General info</a></li>
             </ul>
         </nav>
+
     </header>
     <main>
+
         <section id="desc">
             <h2>Welcome to <em>TeaLab</em> – Your Ultimate Teahouse Experience</h2>
 
@@ -67,6 +70,20 @@
             <p>You like our favicon? Good news! Download it <a download="ceva.jpg"
                                                                href="./resource/images/favicon.jpeg">here</a> for free!</p>
         </section>
+
+        <aside id="nav-map">
+            <img src="./resource/images/other/map_500.jpeg" usemap="#image-map" alt="Example Image" width="500" height="500">
+
+            <!-- Define the map with areas -->
+            <map name="image-map">
+                <area shape="rect" coords="75, 300, 200, 400" alt="tea" href="#teas">
+
+                <area shape="circle" coords="350, 150, 100" alt="teapot" href="#accessories">
+
+                <area shape="circle" coords="390, 390, 25" alt="location" href="#location">
+            </map>
+        </aside>
+
         <section id="tutorials">
             <h2>Tutorials</h2>
             <p>Here you have some good tutorials for beginners.</p>
@@ -76,27 +93,42 @@
                     <a href="https://www.youtube.com/embed/6hMsU71YHk4" target="ifr-video">Why tea is good?</a>
                     <a href="https://www.youtube.com/embed/hsUn31NLbLk" target="ifr-video">Beginner's guide!</a>
                 </div>
-                <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen frameborder="0" height="320"
-                        name="ifr-video"
-                        src="https://www.youtube.com/embed/6hMsU71YHk4"
-                        width="640">
+                <iframe name="ifr-video" width="640" height="320" src="https://www.youtube.com/embed/6hMsU71YHk4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                     Your browser does not support iframes. :(
                 </iframe>
             </div>
         </section>
 
+        <section id="menu">
+            <h2>Menu</h2>
+
+            <embed src="./resource/pdf/tealab_menu.pdf" type="application/pdf" width="100%" height="600px">
+        </section>
+
         <section id="products">
             <h2>Products</h2>
             <p>Here we have our products.</p>
+
             <section id="teas">
                 <h3>Teas</h3>
+
                 <!--branca ursului-->
                 <article>
                     <h4>Common hogweed</h4>
+
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mtext>Best proportion</mtext>
+                        <mfrac>
+                            <mtext>2 teaspoons</mtext>
+                            <mtext>100 ml water</mtext>
+                        </mfrac>
+                    </math>
+
                     <figure>
                         <img src="./resource/images/teas/hogweed_300.jpg" alt="image of common hogweed">
                         <figcaption>Common hogweed</figcaption>
                     </figure>
+
                     <details>
                         <summary><strong>Method of Preparation</strong></summary>
                         Soak two teaspoons of the plant (leaves and fruits) in 100 ml of spring water, from evening to
@@ -104,67 +136,101 @@
                         pour 150 ml of boiling water. After another 15 minutes, add the water in which the plant was
                         macerated to the obtained infusion.
                     </details>
+
                     <details>
                         <summary><strong>Method of Administration</strong></summary>
                         Drink three cups a day, one cup 15 minutes before the main meals.
                     </details>
+
                     <details>
                         <summary><strong>Contraindications</strong></summary>
                         Do not exceed the recommended dose for daily consumption. The product does not contain
                         potentially allergenic ingredients. Contraindicated for women during pregnancy.
                     </details>
                 </article>
+
                 <!--coltul lupului (cretusca)-->
                 <article>
                     <h4>Meadowsweet</h4>
+
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mtext>Best proportion</mtext>
+                        <mfrac>
+                            <mtext>1 spoonful</mtext>
+                            <mtext>200 ml water</mtext>
+                        </mfrac>
+                    </math>
+
                     <figure>
                         <img src="./resource/images/teas/meadowsweet_300.jpg" alt="image of meadowsweet">
                         <figcaption>Meadowsweet</figcaption>
                     </figure>
+
                     <details>
                         <summary><strong>Actions</strong></summary>
                         Helps to detoxify the body (supports diuresis and the normal functioning of the sweat glands,
                         helps to eliminate toxic products of metabolism), supports digestion and the osteoarticular
                         system.
                     </details>
+
                     <details>
                         <summary><strong>Method of Preparation</strong></summary>
                         Put a spoonful of shredded aerial parts in 200 ml of boiling water, let it infuse for 15
                         minutes, then drink it warm for 10-15 minutes.
                     </details>
+
                     <details>
                         <summary><strong>Method of Administration</strong></summary>
                         Drink 2 cups a day in the morning and in the evening, after the main meals. Do not exceed the
                         recommended dose for daily consumption.
                     </details>
+
                 </article>
+
                 <!--lavanda-->
                 <article>
                     <h4>Lavender</h4>
+
+                    <math xmlns="http://www.w3.org/1998/Math/MathML">
+                        <mtext>Best proportion</mtext>
+                        <mfrac>
+                            <mtext>2 teaspoons</mtext>
+                            <mtext>250 ml water</mtext>
+                        </mfrac>
+                    </math>
+
                     <details>
                         <summary><strong>Contributes to</strong></summary>
                         Maintaining normal blood pressure, promoting healthy sleep, helpful in cases of anxiety and
                         irritability, supports digestive comfort during temporary stress.
                     </details>
+
                     <details>
                         <summary><strong>Preparation and Usage</strong></summary>
                         Add 2 teaspoons of the plant to 250 ml of boiling water, let it steep for 15 minutes, strain,
                         and drink. Drink 3 cups of tea per day, 30 minutes before main meals.
                     </details>
+
                     <details>
                         <summary><strong>Precautions and Contraindications</strong></summary>
                         Not to be consumed by pregnant or breastfeeding women.
                     </details>
+
                 </article>
+
             </section>
+
             <section id="accessories">
                 <h3>Accessories</h3>
             </section>
+
             <section id="gifts&sub">
                 <h3>Gifts & subscriptions</h3>
-                <p>Currently we do not offer any.</p>
+                <p>Currently, we do not offer any.</p>
             </section>
+
         </section>
+
         <section id="services">
             <h2>Services</h2>
             <p>Here we have our services.</p>
@@ -176,19 +242,26 @@
                 <p>Calendar with events and workshops.</p>
             </section>
         </section>
+
         <section id="info">
             <h2>General info</h2>
             <p>Some general info.</p>
+
             <section id="providers">
                 <h3>Where we get our products</h3>
                 <p>Main provider: <a href="https://dorelplant.ro/" target="_blank">Dorel Plant</a></p>
             </section>
+
             <section id="program">
                 <h3>Program</h3>
             </section>
+
             <section id="location">
                 <h3>Location</h3>
+
+                <iframe width="600" height="450"  allowfullscreen  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.88430113932!2d26.097011776285612!3d44.43553547107568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1741181235090!5m2!1sro!2sro" ></iframe>
             </section>
+
             <section id="bibliography">
                 <h3>Bibliography</h3>
                 <ul>
@@ -198,21 +271,24 @@
             </section>
         </section>
 
-
     </main>
     <footer>
+
         Go to <a href="#">Top</a>
 
         <address>
             <p>📞 Phone: <a href="tel:+40123456789">+40 123 456 789</a></p>
-            <p>📍 Address: <a href="https://maps.google.com/?q=Facultatea+de+Matematica+si+Informatica" target="_blank">
-                Find us here</a></p>
+
+            <p>📍 Address: <a href="https://maps.google.com/?q=Facultatea+de+Matematica+si+Informatica" target="_blank"> Find us here</a></p>
+
             <p>✉️ Email: <a href="mailto:tea@lab.com">tea@lab.com</a></p>
+
             <p>
                 💬 Chat:
                 <a href="https://discord.gg/ChxRtkZb" target="_blank">Join us on Discord</a> |
                 <a href="https://wa.me/40123456789" target="_blank">Chat on WhatsApp</a>
             </p>
+
         </address>
 
         <small>&copy;

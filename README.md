@@ -6,7 +6,7 @@ Stage 0:
 - [ro] https://docs.google.com/document/d/1fdu3F5taJy_EXOAHF1N9IejOTr1Z_NP42RU3cLqYxOA/edit?usp=sharing
 
 <details>
-<summary><br> Stage 1:</summary>
+<summary> Stage 1:</summary>
 
 - [x] Task 1: main folder + index.html
 
@@ -83,4 +83,18 @@ Stage 0:
 - [x] Task 15: The page must be syntactically valid. Therefore, check it with the HTML validator. The validator will be
   prepared in a tab during the presentation, and the page will be validated instantly.
 
+---
+
+**Bonuses**:
+- [x] Use a formula written in MathML
+- [x] Display a PDF on the page using the \<embed> or \<object> tag
+- [x] Create an image map using the \<map> and \<area> tags
+- [x] Add an iframe with the location marked on Google Maps for the faculty address (from a previous subpoint)
+
+</details>
+
+---
+
+<details>
+<summary>Stage 2:</summary>
 </details>
