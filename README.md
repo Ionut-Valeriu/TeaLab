@@ -5,7 +5,8 @@ Stage 0:
 
 - [ro] https://docs.google.com/document/d/1fdu3F5taJy_EXOAHF1N9IejOTr1Z_NP42RU3cLqYxOA/edit?usp=sharing
 
-<br> Stage 1:
+<details>
+<summary><br> Stage 1:</summary>
 
 - [x] Task 1: main folder + index.html
 
@@ -69,16 +70,17 @@ Stage 0:
 
 - [x] Task 12: multiple details and summary sections
 
-- [ ] Task 13: In the footer, add contact information using the \<address> tag:
-    - [ ] A fictional phone number, marked with the \<a> tag and the appropriate URI Scheme.
-    - [ ] A fictional address that, when clicked, opens a location on Google Maps (the location should normally match
-      the address, but for your case, use the Faculty of Mathematics and Computer Science as the location in Maps).
-    - [ ] A fictional email address, marked with the \<a> tag and the appropriate URI Scheme in the href.
-    - [ ] A link that opens a communication app such as Skype or WhatsApp for chat.
+- [x] Task 13: In the footer, add contact information using the \<address> tag:
+  - [x] A fictional phone number
+  - [x] A fictional address that, when clicked, opens a location on Google Maps
+  - [x] A fictional email address
+  - [x] A link that opens a communication (discord) for chat.
 
-- [ ] Task 14: In the footer, add copyright information using the \<small> tag, the specific copyright symbol with the
-  necessary HTML code (&copy;), and the creation date of the page written in Romanian, enclosed in the \<time> tag with
-  the corresponding datetime attribute.
+- [x] Task 14: In the footer, add copyright information using the \<small> tag, the specific copyright symbol with the
+  necessary HTML code, and the creation date of the page, enclosed in the \<time> tag with the corresponding datetime
+  attribute.
 
-- [ ] Task 15: The page must be syntactically valid. Therefore, check it with the HTML validator. The validator will be
+- [x] Task 15: The page must be syntactically valid. Therefore, check it with the HTML validator. The validator will be
   prepared in a tab during the presentation, and the page will be validated instantly.
+
+</details>
