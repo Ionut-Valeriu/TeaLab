@@ -67,7 +67,7 @@ Stage 0:
       src of the iframe itself. The iframe will default to one of the resources specified in the links.
     - [x] A download link.
 
-- [ ] Task 12: multiple details and summary sections
+- [x] Task 12: multiple details and summary sections
 
 - [ ] Task 13: In the footer, add contact information using the \<address> tag:
     - [ ] A fictional phone number, marked with the \<a> tag and the appropriate URI Scheme.
