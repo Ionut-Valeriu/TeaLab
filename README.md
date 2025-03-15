@@ -97,4 +97,12 @@ Stage 0:
 
 <details>
 <summary>Stage 2:</summary>
+
+- [ ] Basic Task Design:
+  - [ ] Using CSS variables, add padding to the left and right of the page, slightly compressing the content while making the page more spacious. The padding should be identical on both sides. The padding will be smaller on medium screens and minimal on small screens.
+  - [ ] Use grid-gap to create spacing between the grid cells of the page. The spacing should decrease on medium and small screens.
+  - [ ] Visually isolate the areas of the page: header, footer, and grid areas using at least three of the following CSS effects: background color (chosen from the color scheme) for different areas, borders, rounded corners for the box, and box-shadow.
+  - [ ] Use padding to distance the text from the borders of the areas. The padding should be the same for all text areas. Use CSS variables if you cannot achieve this with simple selectors.
+  - [ ] Media elements (images, videos, etc.) that come with a preset width should be given a width in percentages, while also setting a maximum and minimum width for them to avoid undesirable visual effects. These values may differ depending on the screen size.
+
 </details>
