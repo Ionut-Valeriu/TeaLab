@@ -98,11 +98,34 @@ Stage 0:
 <details>
 <summary>Stage 2:</summary>
 
-- [ ] Basic Task Design:
+- [x] (0.025) Chromatic scheme Task - https://coolors.co/palette/ccd5ae-e9edc9-fefae0-faedcd-d4a373
+- [x] (0.15) Layout Task
+  - [x] Zone1: Welcome + map
+  - [x] Zone2: Short description
+  - [x] Zone3: Tutorials
+  - [x] Zone4: Calendar
+  - [x] Zone5: Products
+  - [x] Zone6: Services
+  - [x] Zone7: Location
+  - [x] Zone8: Menu (PDF)
+- [ ] (0.05) Basic Task Design:
   - [ ] Using CSS variables, add padding to the left and right of the page, slightly compressing the content while making the page more spacious. The padding should be identical on both sides. The padding will be smaller on medium screens and minimal on small screens.
   - [ ] Use grid-gap to create spacing between the grid cells of the page. The spacing should decrease on medium and small screens.
   - [ ] Visually isolate the areas of the page: header, footer, and grid areas using at least three of the following CSS effects: background color (chosen from the color scheme) for different areas, borders, rounded corners for the box, and box-shadow.
   - [ ] Use padding to distance the text from the borders of the areas. The padding should be the same for all text areas. Use CSS variables if you cannot achieve this with simple selectors.
   - [ ] Media elements (images, videos, etc.) that come with a preset width should be given a width in percentages, while also setting a maximum and minimum width for them to avoid undesirable visual effects. These values may differ depending on the screen size.
 
+- [ ] (0.025) Icons and external font
+- [ ] (0.05) Table
+- [ ] (0.05) Tab-stylization
+- [ ] (0.05) Link top
+
+---
+
+**Bonuses 2**
+- [ ] (0.05)
+- [ ] (0.05)
+
 </details>
+
+---

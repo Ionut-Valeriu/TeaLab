@@ -20,34 +20,56 @@
     <meta content="TeaLab" name="apple-mobile-web-app-title"/>
     <link rel="manifest" href="./resource/images/favicon/site.webmanifest" />
 
+    <!--CSS-->
+    <link rel="stylesheet" href="./resource/css/general.css" type="text/css" />
+<!--    <link rel="stylesheet" href="./resource/css/nav.css" type="text/css" />-->
+
+
     <!--Title-->
     <title>TeaLab</title>
 </head>
 <body>
-    <header>
+    <header id="nav">
 
         <h1>TeaLab</h1>
         <nav>
             <ul>
-                <li><a href="#products">Products</a>
-                    <ul>
-                        <li><a href="#teas">Teas</a></li>
-                        <li><a href="#accessories">Accessories</a></li>
-                        <li><a href="#gifts&sub">Gifts & subscriptions</a></li>
-                    </ul>
-                </li>
+                <li><a href="#products">Products</a><ul>
+                    <li><a href="#teas">Teas</a></li>
+                    <li><a href="#accessories">Accessories</a></li>
+                    <li><a href="#gifts">Gifts</a></li>
+                </ul></li>
 
-                <li><a href="#services">Services</a></li>
+                <li><a href="#services">Services</a><ul>
+                    <li><a href="#subs">Subscriptions</a></li>
+                    <li><a href="#delivery">Delivery</a></li>
+                </ul></li>
 
                 <li><a href="#info">General info</a></li>
             </ul>
         </nav>
 
     </header>
-    <main>
+    <main id="grid-page">
 
-        <section id="desc">
+        <section id="welcome">
             <h2>Welcome to <em>TeaLab</em> – Your Ultimate Teahouse Experience</h2>
+
+            <aside id="nav-map">
+                <img src="./resource/images/other/map_500.jpeg" usemap="#image-map" alt="Example Image" width="500" height="500">
+
+                <!-- Define the map with areas -->
+                <map name="image-map">
+                    <area shape="rect" coords="75, 300, 200, 400" alt="tea" href="#teas">
+
+                    <area shape="circle" coords="350, 150, 100" alt="teapot" href="#accessories">
+
+                    <area shape="circle" coords="390, 390, 25" alt="location" href="#location">
+                </map>
+            </aside>
+        </section>
+
+        <section id="info">
 
             <p>At <b>TeaLab</b>, we blend tradition with innovation to bring you the finest <b>teas</b> in a cozy and <b>warm atmosphere</b>. Whether you're looking for a peaceful moment of <b>relaxation</b> or a refreshing break, our <b>teahouse</b> is the perfect place to unwind and enjoy carefully selected <b>teas</b> from around the world.</p>
 
@@ -71,35 +93,7 @@
                                                                href="./resource/images/favicon.jpeg">here</a> for free!</p>
         </section>
 
-        <aside id="nav-map">
-            <img src="./resource/images/other/map_500.jpeg" usemap="#image-map" alt="Example Image" width="500" height="500">
-
-            <!-- Define the map with areas -->
-            <map name="image-map">
-                <area shape="rect" coords="75, 300, 200, 400" alt="tea" href="#teas">
-
-                <area shape="circle" coords="350, 150, 100" alt="teapot" href="#accessories">
-
-                <area shape="circle" coords="390, 390, 25" alt="location" href="#location">
-            </map>
-        </aside>
-
-        <section id="tutorials">
-            <h2>Tutorials</h2>
-            <p>Here you have some good tutorials for beginners.</p>
-
-            <div class="container-iframe">
-                <div class="iframe-tabs">
-                    <a href="https://www.youtube.com/embed/6hMsU71YHk4" target="ifr-video">Why tea is good?</a>
-                    <a href="https://www.youtube.com/embed/hsUn31NLbLk" target="ifr-video">Beginner's guide!</a>
-                </div>
-                <iframe name="ifr-video" width="640" height="320" src="https://www.youtube.com/embed/6hMsU71YHk4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                    Your browser does not support iframes. :(
-                </iframe>
-            </div>
-        </section>
-
-        <section id="menu">
+        <section id="menu-pdf">
             <h2>Menu</h2>
 
             <embed src="./resource/pdf/tealab_menu.pdf" type="application/pdf" width="100%" height="600px">
@@ -113,8 +107,8 @@
                 <h3>Teas</h3>
 
                 <!--branca ursului-->
-                <article>
-                    <h4>Common hogweed</h4>
+                <article id="common-hogweed"><details>
+                    <summary>Common hogweed</summary>
 
                     <picture>
                         <source srcset="./resource/images/teas/hogweed_100.jpg" media="(max-width: 640px)">
@@ -148,11 +142,11 @@
                         Do not exceed the recommended dose for daily consumption. The product does not contain
                         potentially allergenic ingredients. Contraindicated for women during pregnancy.
                     </details>
-                </article>
+                </details></article>
 
                 <!--coltul lupului (cretusca)-->
-                <article>
-                    <h4>Meadowsweet</h4>
+                <article id="meadowsweet"><details>
+                    <summary>Meadowsweet</summary>
 
                     <picture>
                         <source srcset="./resource/images/teas/meadowsweet_100.jpg" media="(max-width: 640px)">
@@ -187,11 +181,11 @@
                         recommended dose for daily consumption.
                     </details>
 
-                </article>
+                </details></article>
 
                 <!--lavanda-->
-                <article>
-                    <h4>Lavender</h4>
+                <article id="lavander"><details>
+                    <summary>Lavender</summary>
 
                     <math xmlns="http://www.w3.org/1998/Math/MathML">
                         <mtext>Best proportion</mtext>
@@ -218,16 +212,17 @@
                         Not to be consumed by pregnant or breastfeeding women.
                     </details>
 
-                </article>
+                </details></article>
 
             </section>
 
             <section id="accessories">
                 <h3>Accessories</h3>
+                <p>Currently, we do not offer any.</p>
             </section>
 
-            <section id="gifts&sub">
-                <h3>Gifts & subscriptions</h3>
+            <section id="gifts">
+                <h3>Gifts</h3>
                 <p>Currently, we do not offer any.</p>
             </section>
 
@@ -236,47 +231,64 @@
         <section id="services">
             <h2>Services</h2>
             <p>Here we have our services.</p>
+
+            <section id="subs">
+                <h3>Subscriptions</h3>
+                <p>Coming soon!</p>
+            </section>
+
             <section id="delivery">
                 <h3>Delivery</h3>
+                <p>Coming soon!</p>
             </section>
-            <section id="calendar">
-                <h3>Calendar</h3>
-                <p>Calendar with events and workshops.</p>
-            </section>
+
         </section>
 
-        <section id="info">
-            <h2>General info</h2>
-            <p>Some general info.</p>
+        <section id="calendar">
+            <h3>Calendar</h3>
+            <p>Calendar with events and workshops.</p>
+            <p>Coming soon!</p>
+        </section>
 
-            <section id="providers">
-                <h3>Where we get our products</h3>
-                <p>Main provider: <a href="https://dorelplant.ro/" target="_blank">Dorel Plant</a></p>
-            </section>
+        <section id="tutorial">
+            <h2>Tutorials</h2>
+            <p>Here you have some good tutorials for beginners.</p>
 
-            <section id="program">
-                <h3>Program</h3>
-            </section>
+            <div class="container-iframe">
+                <div class="iframe-tabs">
+                    <a href="https://www.youtube.com/embed/6hMsU71YHk4" target="ifr-video">Why tea is good?</a>
+                    <a href="https://www.youtube.com/embed/hsUn31NLbLk" target="ifr-video">Beginner's guide!</a>
+                </div>
+                <iframe name="ifr-video" width="640" height="320" src="https://www.youtube.com/embed/6hMsU71YHk4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    Your browser does not support iframes. :(
+                </iframe>
+            </div>
+        </section>
 
-            <section id="location">
-                <h3>Location</h3>
+        <section id="location">
+            <h3>Location</h3>
 
-                <iframe width="600" height="450"  allowfullscreen  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.88430113932!2d26.097011776285612!3d44.43553547107568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1741181235090!5m2!1sro!2sro" ></iframe>
-            </section>
-
-            <section id="bibliography">
-                <h3>Bibliography</h3>
-                <ul>
-                    <li><a href="https://comenzi.farmaciatei.ro/" target="_blank">Tei Pharmacy</a></li>
-                    <li><a href="https://dorelplant.ro/" target="_blank">Dorel Plant</a></li>
-                </ul>
-            </section>
+            <iframe width="350" height="350"  allowfullscreen  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.88430113932!2d26.097011776285612!3d44.43553547107568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1741181235090!5m2!1sro!2sro" ></iframe>
         </section>
 
     </main>
-    <footer>
+
+    <footer id="footer">
 
         Go to <a href="#">Top</a>
+
+        <section id="providers">
+            <h3>Where we get our products</h3>
+            <p>Main provider: <a href="https://dorelplant.ro/" target="_blank">Dorel Plant</a></p>
+        </section>
+
+        <section id="bibliography">
+            <h3>Bibliography</h3>
+            <ul>
+                <li><a href="https://comenzi.farmaciatei.ro/" target="_blank">Tei Pharmacy</a></li>
+                <li><a href="https://dorelplant.ro/" target="_blank">Dorel Plant</a></li>
+            </ul>
+        </section>
 
         <address>
             <p>📞 Phone: <a href="tel:+40123456789">+40 123 456 789</a></p>

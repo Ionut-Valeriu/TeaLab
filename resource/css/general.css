@@ -1,0 +1,65 @@
+body{
+    --c_1: #CCD5AE;
+    --c_2: #E9EDC9;
+    --c_3: #FEFAE0;
+    --c_4: #FAEDCD;
+    --c_5: #D4A373;
+}
+
+#grid-page > *{
+    outline: 10px solid var(--c_1);
+    padding: 20px;
+
+}
+
+#grid-page{
+
+    border: 10px solid var(--c_5);
+    display: grid;
+    grid-template-areas:
+    "welcome  welcome  welcome  welcome  welcome"
+    "info     info     info     menu-pdf menu-pdf"
+    "products services services menu-pdf menu-pdf"
+    "calendar calendar tutorial tutorial location"
+    ;
+}
+
+/*[x] Zone1: Welcome + map*/
+#welcome{
+    grid-area: welcome;
+}
+
+/*[x] Zone2: Short description*/
+#info{
+    grid-area: info;
+}
+
+/*[x] Zone3: Tutorials*/
+#tutorial{
+    grid-area: tutorial;
+}
+
+/*[x] Zone4: Calendar*/
+#calendar{
+    grid-area: calendar;
+}
+
+/*[x] Zone5: Products*/
+#products{
+    grid-area: products;
+}
+
+/*[x] Zone6: Services*/
+#services{
+    grid-area: services;
+}
+
+/*[x] Zone7: Location*/
+#location{
+    grid-area: location;
+}
+
+/*[x] Zone8: Menu (PDF)*/
+#menu-pdf{
+    grid-area: menu-pdf;
+}
