@@ -1,65 +1,252 @@
 body{
+    --L-R-Spaceing: 300px;
+    --Top-Spacing: 100px;
+    --gap: 10px;
+
     --c_1: #CCD5AE;
     --c_2: #E9EDC9;
     --c_3: #FEFAE0;
     --c_4: #FAEDCD;
     --c_5: #D4A373;
+
+    font-family: "Indie Flower", cursive;
+    font-weight: 400;
+    font-style: normal;
 }
 
-#grid-page > *{
-    outline: 10px solid var(--c_1);
-    padding: 20px;
+header{
+    text-align: center;
+    background-color: var(--c_3);
+}
+main{
+    margin-left: var(--L-R-Spaceing);
+    margin-right: var(--L-R-Spaceing);
 
 }
+footer{
+    text-align: center;
+    margin-top: var(--Top-Spacing);
+    background-color: var(--c_3);
+}
+footer ul{
+    list-style-type: none;
+}
 
+
+#grid-page img{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+}
 #grid-page{
-
-    border: 10px solid var(--c_5);
+    margin-top: var(--Top-Spacing);
     display: grid;
+    grid-gap: var(--gap);
     grid-template-areas:
     "welcome  welcome  welcome  welcome  welcome"
     "info     info     info     menu-pdf menu-pdf"
     "products services services menu-pdf menu-pdf"
-    "calendar calendar tutorial tutorial location"
+    "calendar calendar tutorial tutorial rooms"
     ;
 }
+#grid-page > *{
+    outline: 3px solid var(--c_1);
+    padding: 10px;
 
-/*[x] Zone1: Welcome + map*/
+}
 #welcome{
     grid-area: welcome;
+    text-align: center;
 }
-
-/*[x] Zone2: Short description*/
 #info{
     grid-area: info;
 }
-
-/*[x] Zone3: Tutorials*/
 #tutorial{
     grid-area: tutorial;
 }
-
-/*[x] Zone4: Calendar*/
 #calendar{
     grid-area: calendar;
 }
-
-/*[x] Zone5: Products*/
 #products{
     grid-area: products;
 }
-
-/*[x] Zone6: Services*/
 #services{
     grid-area: services;
 }
-
-/*[x] Zone7: Location*/
-#location{
-    grid-area: location;
+#rooms{
+    grid-area: rooms;
 }
-
-/*[x] Zone8: Menu (PDF)*/
 #menu-pdf{
     grid-area: menu-pdf;
+}
+
+
+@keyframes rotate {
+    0%, 100% { transform: rotate(-15deg) translateY(0); }
+    50% { transform: rotate(15deg) translateY(-20px);}
+}
+.animated-icon {
+    display: flex;
+    margin: 10px;
+    font-size: 50px;
+    color: var(--c_5);
+    animation: rotate 1s linear infinite;
+}
+.tea-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+table, th, td {
+    max-height: 30px;
+    border: 1px solid;
+    text-align: center;
+    border-collapse: collapse;
+    vertical-align: center;
+}
+caption {
+    caption-side: bottom;
+    padding: 10px;
+    font-weight: bold;
+}
+thead {
+    border-bottom: 3px solid black;
+}
+tfoot {
+    border-top: 3px solid black;
+}
+td:nth-child(even) + td:nth-child(odd) {
+    border-left: 3px solid var(--c_5);
+}
+td:nth-child(odd) + td:nth-child(even) {
+    border-left: 3px solid var(--c_4);
+}
+tbody tr {
+    transition: box-shadow 0.5s ease-in-out;
+}
+tbody tr:hover {
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+div.iframe-tabs > a{
+    display: block;
+    text-align: center;
+    width: 100px;
+    height: 50px;
+    color: var(--c_5);
+    border: 2px solid var(--c_1);
+    background-color: var(--c_3);
+    text-decoration: none;
+    transition: 1s;
+
+}
+.container-iframe{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.iframe-tabs{
+    display: flex;
+    justify-content: center;
+    max-width: 500px;
+    min-width: 100px;
+}
+.container-iframe > iframe{
+    width: 100%;
+}
+.iframe-tabs > a:hover{
+    background-color: var(--c_5);
+    color: var(--c_3);
+    border-color: var(--c_2);
+}
+
+
+#link-top{
+    box-sizing: border-box;
+    text-align:center;
+    position:fixed;
+    opacity:0.5;
+    bottom:0.5em;
+    left:0.5em;
+
+    width:3rem;
+    height:2rem;
+    line-height:2rem;
+
+    border-left:4px solid grey;
+    border-right:4px solid grey;
+    border-radius:50%;
+
+    transition: 1s;
+}
+#link-top:hover{
+    opacity:1;
+}
+#link-top:hover > div{
+    transform: translateY(30%);
+    border-bottom: 0.5rem solid var(--c_5);
+}
+#shape{
+    height:0;
+    width:0;
+    display:inline-block;
+    border-bottom:0.5rem solid grey;
+    border-left:0.5rem solid transparent;
+    border-right:0.5rem solid transparent;
+    vertical-align: top;
+    horiz-align: center;
+    transform: translateY(130%);
+
+    transition: 1s;
+}
+
+#location{
+    margin-top: var(--Top-Spacing);
+}
+
+
+@media screen and (max-width: 1280px){
+    body{
+        --L-R-Spaceing: 200px;
+        --gap: 6px;
+    }
+
+    #grid-page {
+        grid-template-areas:
+        "welcome welcome"
+        "info info"
+        "menu-pdf menu-pdf"
+        "products services"
+        "calendar rooms"
+        "tutorial tutorial";
+    }
+}
+
+@media screen and (max-width: 800px){
+    body{
+        --L-R-Spaceing: 50px ;
+        --gap: 3px;
+    }
+
+    .table-container {
+        overflow-x: scroll;
+        overflow-y: scroll;
+        width: 100%;
+    }
+
+    #grid-page{
+        grid-template-areas:
+        "welcome"
+        "info"
+        "menu-pdf"
+        "products"
+        "services"
+        "calendar"
+        "rooms"
+        "tutorial"
+    ;
+    }
 }

@@ -22,18 +22,27 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="./resource/css/general.css" type="text/css" />
-<!--    <link rel="stylesheet" href="./resource/css/nav.css" type="text/css" />-->
+    <link rel="stylesheet" href="./resource/css/nav.css" type="text/css" />
 
+
+    <!--Font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!--Title-->
     <title>TeaLab</title>
 </head>
 <body>
+
     <header id="nav">
 
         <h1>TeaLab</h1>
+
         <nav>
-            <ul>
+            <ul class="nav-list">
                 <li><a href="#products">Products</a><ul>
                     <li><a href="#teas">Teas</a></li>
                     <li><a href="#accessories">Accessories</a></li>
@@ -50,7 +59,10 @@
         </nav>
 
     </header>
-    <main id="grid-page">
+
+    <main>
+
+        <div id="grid-page">
 
         <section id="welcome">
             <h2>Welcome to <em>TeaLab</em> – Your Ultimate Teahouse Experience</h2>
@@ -104,7 +116,10 @@
             <p>Here we have our products.</p>
 
             <section id="teas">
-                <h3>Teas</h3>
+                <div class="tea-container">
+                    <h3>Teas</h3>
+                    <i class="fa-solid fa-mug-saucer animated-icon"></i>
+                </div>
 
                 <!--branca ursului-->
                 <article id="common-hogweed"><details>
@@ -247,7 +262,9 @@
         <section id="calendar">
             <h3>Calendar</h3>
             <p>Calendar with events and workshops.</p>
-            <p>Coming soon!</p>
+
+
+
         </section>
 
         <section id="tutorial">
@@ -265,17 +282,61 @@
             </div>
         </section>
 
-        <section id="location">
-            <h3>Location</h3>
+        <section id="rooms">
 
-            <iframe width="350" height="350"  allowfullscreen  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.88430113932!2d26.097011776285612!3d44.43553547107568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1741181235090!5m2!1sro!2sro" ></iframe>
+            <h3>Rooms</h3>
+
+            <div class="table-container"><table>
+                <caption>Today's activities</caption>
+                <thead><tr>
+                    <th>Time</th>
+                    <th>Room1</th>
+                    <th>Room2</th>
+                    <th>Room3</th>
+                    <th>Main Room</th>
+                </tr></thead>
+                <tbody>
+                <tr>
+                    <td>8-10</td>
+                    <td rowspan="2" colspan="3">Free</td>
+                    <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum ipsam maiores modi nobis provident repudiandae veritatis vero. Aliquam aliquid autem eaque id, ipsam magnam mollitia, natus neque officiis quas sit!</td>
+                </tr>
+                <tr>
+                    <td>12-14</td>
+                    <td rowspan="2">50% off for couples</td>
+                </tr>
+                <tr>
+                    <td>16-18</td>
+                    <td>Free</td>
+                    <td colspan="2">Knowledge contest</td>
+                </tr>
+                <tr>
+                    <td>20-22</td>
+                    <td>Infusion workshop</td>
+                    <td colspan="3">Free</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="5">Feel free to make a reservation!</td>
+                </tr>
+                </tfoot>
+            </table></div>
+
         </section>
+
+        </div>
+
+        <iframe id="location" width="50%"  allowfullscreen  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.88430113932!2d26.097011776285612!3d44.43553547107568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1741181235090!5m2!1sro!2sro" ></iframe>
 
     </main>
 
+
     <footer id="footer">
 
-        Go to <a href="#">Top</a>
+        <a href="#" title="Go to top" id="link-top"><div id="shape"></div></a>
+
+
 
         <section id="providers">
             <h3>Where we get our products</h3>
@@ -291,14 +352,14 @@
         </section>
 
         <address>
-            <p>📞 Phone: <a href="tel:+40123456789">+40 123 456 789</a></p>
+            <p><i class="fa-solid fa-phone"></i> Phone: <a href="tel:+40123456789">+40 123 456 789</a></p>
 
-            <p>📍 Address: <a href="https://maps.google.com/?q=Facultatea+de+Matematica+si+Informatica" target="_blank"> Find us here</a></p>
+            <p><i class="fa-solid fa-map-pin"></i> Address: <a href="https://maps.google.com/?q=Facultatea+de+Matematica+si+Informatica" target="_blank"> Find us here</a></p>
 
-            <p>✉️ Email: <a href="mailto:tea@lab.com">tea@lab.com</a></p>
+            <p><i class="fa-solid fa-envelope"></i> Email: <a href="mailto:tea@lab.com">tea@lab.com</a></p>
 
-            <p>
-                💬 Chat:
+            <p><i class="fa-solid fa-comments"></i>
+                Chat:
                 <a href="https://discord.gg/ChxRtkZb" target="_blank">Join us on Discord</a> |
                 <a href="https://wa.me/40123456789" target="_blank">Chat on WhatsApp</a>
             </p>

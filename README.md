@@ -107,18 +107,28 @@ Stage 0:
   - [x] Zone5: Products
   - [x] Zone6: Services
   - [x] Zone7: Location
-  - [x] Zone8: Menu (PDF)
-- [ ] (0.05) Basic Task Design:
-  - [ ] Using CSS variables, add padding to the left and right of the page, slightly compressing the content while making the page more spacious. The padding should be identical on both sides. The padding will be smaller on medium screens and minimal on small screens.
-  - [ ] Use grid-gap to create spacing between the grid cells of the page. The spacing should decrease on medium and small screens.
-  - [ ] Visually isolate the areas of the page: header, footer, and grid areas using at least three of the following CSS effects: background color (chosen from the color scheme) for different areas, borders, rounded corners for the box, and box-shadow.
-  - [ ] Use padding to distance the text from the borders of the areas. The padding should be the same for all text areas. Use CSS variables if you cannot achieve this with simple selectors.
-  - [ ] Media elements (images, videos, etc.) that come with a preset width should be given a width in percentages, while also setting a maximum and minimum width for them to avoid undesirable visual effects. These values may differ depending on the screen size.
+  - [x] Zone8: Menu (PDF) / table
+- [x] (0.05) Basic Task Design:
+  - [x] Using CSS variables, add padding to the left and right of the page. The padding should be identical on both sides. The padding will be smaller on medium screens and minimal on small screens.
+  - [x] Use grid-gap to create spacing between the grid cells of the page. The spacing should decrease on medium and small screens.
+  - [x] Visually isolate the areas of the page: header, footer, and grid areas using at least three of the following CSS effects: background color (chosen from the color scheme) for different areas, borders, rounded corners for the box, and box-shadow.
+  - [x] Use padding to distance the text from the borders of the areas. The padding should be the same for all text areas. Use CSS variables if you cannot achieve this with simple selectors.
+  - [x] Media elements (images, videos, etc.) that come with a preset width should be given a width in percentages, while also setting a maximum and minimum width for them to avoid undesirable visual effects. These values may differ depending on the screen size.
+- [x] (0.025) Icons and external font
+  - [x] External font using Google API
+  - [x] Static icon
+  - [x] Animated icon
 
-- [ ] (0.025) Icons and external font
 - [ ] (0.05) Table
-- [ ] (0.05) Tab-stylization
-- [ ] (0.05) Link top
+  - [x] Caption under the table using CSS
+  - [x] Alternating border color (on columns)
+  - [x] The thickness of the border separating the thead area from the tbody area, as well as the tbody area from the tfoot area, should be 2 or 3 times larger than the thickness of the regular row borders.
+  - [x] When hovering over a row with the cursor, a box-shadow will gradually appear inside it, fully overlapping the row.
+  - [ ] On small screens, the table will be placed inside a container with a horizontal scrollbar.
+
+- [x] (0.05) Tab-stylization
+
+- [x] (0.05) Link top
 
 ---
 
