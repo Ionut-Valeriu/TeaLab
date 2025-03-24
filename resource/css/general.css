@@ -208,6 +208,9 @@ div.iframe-tabs > a{
     margin-top: var(--Top-Spacing);
 }
 
+mtext{
+    color: var(--c_5);
+}
 
 @media screen and (max-width: 1280px){
     body{
