@@ -139,3 +139,18 @@ Stage 0:
 </details>
 
 ---
+
+<details>
+<summary>Stage 3:</summary>
+
+- [ ] (0.25) Menu task
+- [ ] (0.15) Print style
+
+---
+
+**Bonuses 3**
+- [ ] (0.05) "hamburger" icon for menu using 3 divs/spans
+- [ ] (0.05) 
+- [ ] (0.05)
+
+</details>
