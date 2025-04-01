@@ -150,8 +150,19 @@ Stage 0:
 <details>
 <summary>Stage 3:</summary>
 
-- [ ] (0.25) Menu task
-- [ ] (0.15) Print style
+- [x] (0.25) Menu task
+  - [x] Demanded menu hover transition
+  - [x] Medium and small screen changes
+  - [x] Hamburger on small screen
+  - [x] Clip-path visibility
+- [x] (0.15) Print style
+  - [x] The banner should be displayed at the bottom of the first page, centered horizontally, spanning 70% of the page width, with a black inset border of 4px.
+  - [x] Images, videos, iframes, and other media elements, along with elements dependent on them, will be hidden. The link to the top of the page will also be hidden.
+  - [x] The page grid will be displayed as a block to prevent sectioned cells from appearing in printed pages.
+  - [x] All links on the page will appear as normal text.
+  - [x] The level 1 heading will be on the first page, centered horizontally. Below it, the menu will be displayed as an unordered list with items stacked one below the other. After the menu, a page break will be inserted. Before the footer, there will also be a page break.
+  - [x] Each page will have a "watermark" containing your name. This will have a width of 4 cm of the page width and a height of 1 cm of the page height. It will be displayed in the bottom-right corner of each page, with a solid 3px border and rounded corners. The text inside will be centered horizontally, bold, and have an opacity of 0.4.
+  - [x] When printing, the left-side pages (in print preview) should have a left margin of 3 cm and a right margin of 1 cm, while the right-side pages should have a right margin of 3 cm and a left margin of 1 cm.
 
 ---
 
