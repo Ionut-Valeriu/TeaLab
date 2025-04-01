@@ -18,6 +18,10 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+#banner{
+    padding-top: 1em;
+}
+
 body {
     line-height: 1.4em;
 }
@@ -34,6 +38,9 @@ body{
     --gap: 10px;
     --shadow: 4px;
 
+
+    --c_-1: #606C38;
+    --c_0: #718355;
     --c_1: #CCD5AE;
     --c_2: #E9EDC9;
     --c_3: #FEFAE0;
