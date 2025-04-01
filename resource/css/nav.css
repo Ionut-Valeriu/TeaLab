@@ -1,54 +1,78 @@
-nav{
+#hamburger {
+    display: none;
+}
+
+#ch-menu {
+    display: none;
+}
+
+nav {
     background-color: var(--c_4);
     --button-height:30px;
     --button-width: 100px;
     height: var(--button-height);
 }
 
-ul.nav-list ul{
-    display: none;
-    padding: 0;
-}
-
-ul.nav-list{
+ul.nav-list {
+    list-style-type: none;
     display: flex;
     justify-content: center;
-    list-style-type: none;
     padding: 0;
 }
-
-ul.nav-list li {
-    width: var(--button-width);
-    height: var(--button-height);
-    border: 1px solid var(--c_1);
-    box-sizing: border-box;
-    text-align: center;
-    /*font-weight: bold;*/
-    line-height: var(--button-height);
-    transition: all 0.15s linear;
+ul.nav-list i {
+    display: none;
 }
-
-ul.nav-list li:hover {
-    background-color: var(--c_5);
-}
-
-ul.nav-list li:hover ul{
-    display: block;
-    background-color: var(--c_1);
+ul.nav-list ul {
     list-style-type: none;
-    position: relative;
-/*    left: -1px;*/
+    background-color: var(--c_1);
+    transform: scale(0);
+    transition: transform 1s;
+    transform-origin: top left;
+    padding: 0;
 }
-
-ul.nav-list li:hover>a, ul.nav-list li:hover>div{
-    color: white;
-}
-
-ul.nav-list a,ul.nav-list div {
+ul.nav-list a {
     color: black;
     text-decoration: none;
     transition: all 300ms linear;
     display: block;
     height: 100%;
     cursor: pointer;
+    position: relative;
 }
+ul.nav-list li {
+    width: var(--button-width);
+    height: var(--button-height);
+    border: 1px solid var(--c_1);
+    box-sizing: border-box;
+    text-align: center;
+    font-weight: bold;
+    line-height: var(--button-height);
+    transition: all 0.15s linear;
+}
+ul.nav-list li:hover ul {
+    display: block;
+    list-style-type: none;
+    position: relative;
+    transform: scale(1);
+}
+ul.nav-list > li > a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    background-color: rgba(212, 163, 115, 0.5);
+    transition: transform 0.3s ease-in-out;
+}
+ul.nav-list > li > a:hover::before {
+    transform: scale(1);
+}
+ul.nav-list > li > ul > li > a:hover {
+    background-color: var(--c_4);
+    color: var(--c_0);
+    text-shadow: 1px 1px var(--c_1);
+}
+
+/*# sourceMappingURL=nav.css.map */

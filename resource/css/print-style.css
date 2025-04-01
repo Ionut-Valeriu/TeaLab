@@ -1,0 +1,108 @@
+#watermark{
+    display:none;
+}
+
+@media print {
+
+    html, body {
+        width: 210mm;
+        overflow:visible !important;
+    }
+
+    .animated-icon, #link-top{
+        display: none;
+    }
+
+    /*****1*****/
+    #banner {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        border: 4px inset black;
+    }
+
+    /*****2*****/
+    #nav-map, picture, .container-iframe, iframe {
+        display: none;
+    }
+
+    /*****3*****/
+    #grid-page{
+        display:block;
+        margin: 0;
+        page-break-before:always;
+    }
+    #grid-page > *{
+        outline: 0;
+        margin-top: 10px;
+    }
+
+    /*****4*****/
+    a{
+        text-decoration: none;
+        color: black;
+    }
+
+    /*****5*****/
+    #hamburger, #ch-menu, .nav-list ul{
+        display: none;
+    }
+    #nav{
+        text-align: center;
+        page-break-after: always;
+    }
+    h1{
+        text-align: center;
+    }
+    .nav-list {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        list-style-type: circle;
+        padding: 0;
+    }
+    .nav-list > li {
+        margin-bottom: 5px;
+    }
+    footer {
+        page-break-before: always;
+    }
+
+    /*****6*****/
+    #watermark
+    {
+        position: fixed;
+        width: 4cm;
+        height: 1cm;
+        bottom: 2cm;
+        right: 1cm;
+        border: solid 3px;
+        border-radius: 20px;
+        text-align: center;
+        font-weight: bold;
+        padding: 4px;
+        opacity:0.4;
+        display: block;
+    }
+
+}
+
+@page {
+    size: A4 portrait;
+    margin-bottom:2cm;
+    margin-top:2cm;
+    counter-increment: page;
+}
+@page:left{
+    margin-left:3cm;
+    margin-right:1cm;
+}
+@page:right{
+    margin-right:3cm;
+    margin-left:1cm;
+}
+
+
+

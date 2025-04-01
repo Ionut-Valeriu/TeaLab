@@ -1,0 +1,9 @@
+ul.nav-list i {
+  display: block;
+  line-height: var(--button-height);
+}
+ul.nav-list .text-icon {
+  display: none;
+}
+
+/*# sourceMappingURL=nav1000.css.map */

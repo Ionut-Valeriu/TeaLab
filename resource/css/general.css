@@ -4,11 +4,11 @@ a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
 b, u, i, center,
-dl, dt, dd
+dl, dt, dd,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
+figure, figcaption, footer, hgroup,
 menu, output, ruby, section, summary,
 time, mark, audio, video {
     margin: 0;
@@ -16,6 +16,10 @@ time, mark, audio, video {
     border: 0;
     font-size: 100%;
     vertical-align: baseline;
+}
+
+#banner{
+    padding-top: 1em;
 }
 
 body {
@@ -34,6 +38,9 @@ body{
     --gap: 10px;
     --shadow: 4px;
 
+
+    --c_-1: #606C38;
+    --c_0: #718355;
     --c_1: #CCD5AE;
     --c_2: #E9EDC9;
     --c_3: #FEFAE0;
@@ -43,6 +50,11 @@ body{
     font-family: "Indie Flower", cursive;
     font-weight: 400;
     font-style: normal;
+}
+
+h1{
+    margin-top: 0;
+    padding-top: 1em;
 }
 
 header{

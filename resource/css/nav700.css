@@ -1,0 +1,81 @@
+#hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--button-height) / 5);
+}
+
+.line {
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    display: inline-block;
+    background-color: black;
+    height: calc(var(--button-height) / 5);
+    width: var(--button-height);
+    border-top-right-radius: 25%;
+    border-bottom-right-radius: 25%;
+}
+
+ul.nav-list {
+    display: block;
+    opacity: 0;
+    margin: 0;
+    width: 100%;
+    background-color: var(--c_4);
+    animation: nav700menuReverse 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+ul.nav-list li {
+    width: 100%;
+}
+
+#ch-menu:checked + ul.nav-list {
+    opacity: 1;
+    display: block;
+    position: relative;
+    animation: nav700menu 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+}
+#ch-menu:checked + ul.nav-list li ul {
+    display: block;
+    z-index: 1;
+}
+#ch-menu:checked + ul.nav-list li:hover ul {
+    display: block;
+    position: relative;
+}
+
+@keyframes nav700menu {
+    0% {
+        clip-path: polygon(0 0, 0 0, 0 50%, 0 100%, 0 100%);
+    }
+    10% {
+        clip-path: polygon(0 0, 0 0, 10% 50%, 0 100%, 0 100%);
+    }
+    90% {
+        clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
+    }
+}
+@keyframes nav700menuReverse {
+    0% {
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
+        opacity: 1;
+    }
+    10% {
+        clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+    }
+    90% {
+        clip-path: polygon(0 0, 0 0, 10% 50%, 0 100%, 0 100%);
+    }
+    100% {
+        clip-path: polygon(0 0, 0 0, 0 50%, 0 100%, 0 100%);
+        opacity: 1;
+    }
+}
+
+/*# sourceMappingURL=nav700.css.map */

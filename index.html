@@ -8,10 +8,6 @@
     <meta name="description" content="Discover a cozy tea house offering a curated selection of premium teas, handcrafted accessories, and immersive tasting experiences. Enjoy expertly brewed teas, explore our collection, and join exclusive tea workshops and events.">
     <meta name="author" content="Valeriu-Ionut Tablet">
 
-    <!--
-        Pentru favicon transparent
-        <meta name="msapplication-TileColor" content="...culoarea aleasa de voi...">
-    -->
     <!--Favicon links-->
     <link rel="icon" type="image/png" href="./resource/images/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="./resource/images/favicon/favicon.svg" />
@@ -22,7 +18,11 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="./resource/css/general.css" type="text/css" />
+
     <link rel="stylesheet" href="./resource/css/nav.css" type="text/css" />
+    <link rel="stylesheet" href="./resource/css/nav1000.css" type="text/css" media="screen and (max-width:1000px)"/>
+    <link rel="stylesheet" href="./resource/css/nav700.css" type="text/css" media="screen and (max-width:700px)"/>
+    <link rel="stylesheet" href="./resource/css/print-style.css" type="text/css" />
 
 
     <!--Font-->
@@ -37,12 +37,26 @@
 </head>
 <body>
 
+    <p id="watermark">Tablet<br>Valeriu-Ionut</p>
+
     <header id="nav">
 
         <h1>TeaLab</h1>
 
         <nav>
+            <label id="hamburger" for="ch-menu">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </label>
+            <input id="ch-menu" type="checkbox">
+
             <ul class="nav-list">
+                <li><a href="index.html">
+                    <i class="fa-solid fa-house"></i>
+                    <div class="text-icon">Home</div>
+                </a></li>
+
                 <li><a href="#products">Products</a><ul>
                     <li><a href="#teas">Teas</a></li>
                     <li><a href="#accessories">Accessories</a></li>
@@ -51,7 +65,7 @@
 
                 <li><a href="#services">Services</a><ul>
                     <li><a href="#subs">Subscriptions</a></li>
-                    <li><a href="#delivery">Delivery</a></li>
+                    <li><a href="delivery.html">Delivery</a></li>
                 </ul></li>
 
                 <li><a href="#info">General info</a></li>
@@ -59,6 +73,8 @@
         </nav>
 
     </header>
+
+
 
     <main>
 
@@ -109,7 +125,7 @@
             <h2>Menu</h2>
 
             <div class="pdf-container">
-                <embed src="./resource/pdf/tealab_menu.pdf" type="application/pdf" width="100%" max-height="600px">
+                <embed src="./resource/pdf/tealab_menu.pdf" type="application/pdf" width="100%" height="600px" />
             </div>
         </section>
 
@@ -320,7 +336,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <td colspan="5">Feel free to make a reservation! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus culpa doloribus eius facilis harum in, iste laborum maiores, natus nostrum officiis placeat porro provident quibusdam recusandae saepe tempora tempore totam!</td>
+                    <td colspan="5">Feel free to make a reservation!</td>
                 </tr>
                 </tfoot>
             </table></div>
@@ -329,24 +345,25 @@
 
         </div>
 
-        <iframe id="location" width="50%"  allowfullscreen  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.88430113932!2d26.097011776285612!3d44.43553547107568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1741181235090!5m2!1sro!2sro" ></iframe>
+        <iframe id="location" width="100%" allowfullscreen src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.88430113932!2d26.097011776285612!3d44.43553547107568!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1741181235090!5m2!1sro!2sro" ></iframe>
 
     </main>
 
 
+
     <footer id="footer">
+
+        <p id="banner">This is a school project!</p>
 
         <a href="#" title="Go to top" id="link-top"><div id="shape"></div></a>
 
-
-
         <section id="providers">
-            <h3>Where we get our products</h3>
+            <h4>Where we get our products</h4>
             <p>Main provider: <a href="https://dorelplant.ro/" target="_blank">Dorel Plant</a></p>
         </section>
 
         <section id="bibliography">
-            <h3>Bibliography</h3>
+            <h4>Bibliography</h4>
             <ul>
                 <li><a href="https://comenzi.farmaciatei.ro/" target="_blank">Tei Pharmacy</a></li>
                 <li><a href="https://dorelplant.ro/" target="_blank">Dorel Plant</a></li>
@@ -372,5 +389,6 @@
             <time datetime="2025-03-01">March 2025</time>
             All rights reserved.</small>
     </footer>
+
 </body>
 </html>
