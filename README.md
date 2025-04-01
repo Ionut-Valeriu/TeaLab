@@ -1,6 +1,13 @@
 # TeaLab
 A structured and responsive tea house website built with modern web technologies. Designed for scalability and ease of navigation.
 
+## Points: 2.2
+- stage 0: 0.3
+- stage 1: 0.5 + 0.35
+- stage 2: 0.5
+- stage 3: 0.55
+- stage 4:
+
 Stage 0:
 
 - [ro] https://docs.google.com/document/d/1fdu3F5taJy_EXOAHF1N9IejOTr1Z_NP42RU3cLqYxOA/edit?usp=sharing
@@ -139,3 +146,18 @@ Stage 0:
 </details>
 
 ---
+
+<details>
+<summary>Stage 3:</summary>
+
+- [ ] (0.25) Menu task
+- [ ] (0.15) Print style
+
+---
+
+**Bonuses 3**
+- [ ] (0.05) "hamburger" icon for menu using 3 divs/spans
+- [ ] (0.05)
+- [ ] (0.05)
+
+</details>
