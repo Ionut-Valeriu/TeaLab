@@ -35,24 +35,24 @@ ul.nav-list{
 }
 
 #ch-menu {
-  &:checked + nav ul.nav-list {
-    opacity: 1;
-    display: block;
-    position: relative;
-    animation: nav700menu 0.5s;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-
-    li {
-      ul {
-        display: block;
-        z-index: 1;
-      }
-
-      &:hover {
-        ul {
+  &:checked {
+    + ul.nav-list {
+      opacity: 1;
+      display: block;
+      position: relative;
+      animation: nav700menu 0.5s;
+      animation-iteration-count: 1;
+      animation-timing-function: linear;
+      li {
+        ul{
           display: block;
-          position: relative;
+          z-index: 1;
+        }
+        &:hover {
+          ul {
+            display: block;
+            position: relative;
+          }
         }
       }
     }
@@ -67,7 +67,6 @@ $translateY3: calc(var(--button-height) / -3);
 $translateY12: calc(var(--button-height) / 1.5);
 $translateY22: calc(var(--button-height) / -5);
 $translateY32: calc(var(--button-height) / -1.5);
-
 
 @for $i from 1 through 3 {
   #hamburger .line:nth-child(#{$i}) {
@@ -120,3 +119,37 @@ $translateY32: calc(var(--button-height) / -1.5);
     }
   }
 }
+
+@keyframes nav700menu {
+  0% {
+    clip-path: polygon(0 0, 0 0, 0 50%, 0 100%, 0 100%);
+  }
+  10% {
+    clip-path: polygon(0 0, 0 0, 10% 50%, 0 100%, 0 100%);
+  }
+  90% {
+    clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
+  }
+}
+
+@keyframes nav700menuReverse {
+  0% {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+  10% {
+    clip-path: polygon(0 0, 80% 0, 100% 50%, 80% 100%, 0 100%);
+
+  }
+  90% {
+    clip-path: polygon(0 0, 0 0, 10% 50%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(0 0, 0 0, 0 50%, 0 100%, 0 100%);
+    opacity: 1;
+  }
+}
+
