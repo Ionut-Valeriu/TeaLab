@@ -64,6 +64,11 @@ $translateY1: calc(var(--button-height) / 3);
 $translateY2: calc(var(--button-height) / -10);
 $translateY3: calc(var(--button-height) / -3);
 
+$translateY12: calc(var(--button-height) / 1.5);
+$translateY22: calc(var(--button-height) / -5);
+$translateY32: calc(var(--button-height) / -1.5);
+
+
 @for $i from 1 through 3 {
   #hamburger .line:nth-child(#{$i}) {
     animation: anim-line-#{$i} 0.5s forwards;
@@ -89,6 +94,16 @@ $translateY3: calc(var(--button-height) / -3);
         transform: scale(1.2) rotate(90deg);
       } @else if $i == 3 {
         transform: scale(1.2) rotate(90deg) translateY($translateY3);
+      }
+    }
+    50%{
+      opacity: 0.8;
+      @if $i == 1 {
+        transform: scale(1.1) rotate(-45deg) translateY($translateY12);
+      } @else if $i == 2 {
+        transform: scale(1.1) rotate(-45deg) translateY($translateY22);
+      } @else if $i == 3 {
+        transform: scale(1.1) rotate(-45deg) translateY($translateY32);
       }
     }
     100% {
