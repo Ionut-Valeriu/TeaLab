@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <meta name="description" content="Error page fro TeaLab website">
+    <meta name="keywords" content="error">
+<!--    <link rel="stylesheet" type="text/css" href="/resource/css/eroare.css">-->
+    <title>TeaLab - Error</title>
+    <%- include("../fragments/head.ejs")%>
+
+</head>
+<body>
+
+    <%- include("../fragments/header.ejs")%>
+
+    <main>
+        <div id="err-coloane">
+            <div id="err-imag">
+                <img src="<%- locals.image %>"  alt="error" width="300" height="300"/>
+            </div>
+            <section>
+                <h2><%- locals.titlu %></h2>
+                <p><%- locals.text %></p>
+            </section>
+        </div>
+    </main>
+
+    <%- include("../fragments/footer.ejs") %>
+
+</body>
+</html>

@@ -167,9 +167,9 @@ Stage 0:
 ---
 
 **Bonuses 3**
-- [ ] (0.05) "hamburger" icon for menu using 3 divs/spans
-- [ ] (0.05)
-- [ ] (0.05)
+- [x] (0.05) "hamburger" icon for menu using 3 divs/spans
+- [x] (0.05)
+- [x] (0.05)
 
 </details>
 
@@ -178,6 +178,44 @@ Stage 0:
 <details>
 <summary>Stage 4:</summary>
 
+- [x] npm init
+- [x] index.js
+- [x] show __dirname, __filename and process.cwd()
+- [x] views dir > pages + fragments dir
+- [x] index.ejs, head.ejs, header.ejs, footer.ejs
+- [x] static dir resource
+- [x] rename all paths so they will no longer be relative, but a request to the server
+- [x] first page (index), must be accessible with
+  - [x] localhost:8080
+  - [x] localhost:8080/index
+  - [x] localhost:8080/home
+- [x] declare an app.get() for \"/*\"
+  - [x] if the page don't exist, render a special page for 404 error
+  - [x] use a callback function as argument in render function which in case of "Fail to lookup view" shows the 404 error page; else if other error exist the generic error page; else if there are no errors show the result of the search
+- [x] for error rendering use a json directory \"errors.json\" with:
+  - [x] default_path: path to images corresponding to the errors
+  - [x] default_error: JSON object with: title, text, image
+  - [x] info_errors: object vector, each object describes an error with: identifier, status, title, text, image
+- [x] create a template \"error.ejs\" to show the errors
+  - [x] this will take form locals: the title, the text and the image of the error
+- [x] global variable named _obGlobal_ of object type
+  - [x] property _obErrors_ with default value of _null_
+- [x] function named _initErrors()_ which read the JSON with the errors and creates a corresponding object with all 
+  the errors details; this object will be saved as the obErrors property of the obGlobal; for every error set the 
+  absolute path in the _image_ property
+- [x] error showing function named _showErrors()_ that will take an object of the response type, the identifier, the 
+  title, the text and the error's image
+  - [x] if there is any error with that identifier and the title,text and image are not specified, the data is 
+    load form the JSON
+  - [x] if the identifier is not specified show the error page with the default_error specification
+- [x] create a second page that can be accessed form the menu and transmit a get request
+- [x] show the user ip on the site
+- [x] for a request like /resource/css return 403, if there is no specified file
+- [x] for every request for a .ejs file transmit a 400 error
+- [x] add and app.get() for \"favicon.ico\"
+- [x] make a vector with all the names of the directories that will hold files that are generated
+- [x] video
+- [x] link
 
 
 </details>

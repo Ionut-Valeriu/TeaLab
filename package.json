@@ -1,0 +1,38 @@
+{
+  "name": "tealab",
+  "version": "1.0.0",
+  "description": "Website for a teahouse. This is a school project.",
+  "keywords": [
+    "tea",
+    "teas",
+    "teahouse",
+    "tea",
+    "delivery",
+    "relaxation",
+    "warm",
+    "atmosphere",
+    "tea",
+    "subscriptions",
+    "tealab",
+    "TeaLab"
+  ],
+  "homepage": "https://github.com/Ionut-Valeriu/TeaLab#readme",
+  "bugs": {
+    "url": "https://github.com/Ionut-Valeriu/TeaLab/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ionut-Valeriu/TeaLab.git"
+  },
+  "license": "MIT",
+  "author": "Valeriu-Ionut Tablet",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "xpress": "^2.4.6"
+  }
+}

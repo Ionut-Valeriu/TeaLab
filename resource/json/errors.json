@@ -1,0 +1,58 @@
+{
+    "default_path": "/resource/images/errors",
+
+    "default_error":{
+        "title":"!!! Error !!!",
+        "text": "An error has occurred.",
+        "image":"generalErr.jpeg"
+    },
+
+    "info_errors": [
+        {
+            "identifier":404,
+            "status":true,
+            "title":"Tea Break? (404)",
+            "text": "The tea is brewing, but this page isn't ready yet. How about browsing our other flavors... I mean, pages?",
+            "image":"Err404.jpeg"
+        },
+        {
+            "identifier":403,
+            "status":true,
+            "title":"No Peeking! (403)",
+            "text": "Whoops! Looks like this particular tea blend is for our eyes only. You don't have permission to view it. Perhaps another flavor?",
+            "image":"Err403.jpeg"
+        },
+        {
+            "identifier":400,
+            "status":true,
+            "title":"Wrong Ingredients! (400)",
+            "text": "Hmm, that request didn't quite blend well. It seems there's a little mix-up on our end (or yours!). Try again with a fresh request?",
+            "image":"generalErr.jpeg"
+        },
+        
+        {
+            "identifier":1,
+            "status":false,
+            "title":"Tea's Still Brewing... (1)",
+            "text": "Hold on a moment! The tea leaves are just starting to unfurl. Something's taking a little longer than expected. Maybe try again in a sip?",
+            "image":"generalErr.jpeg"
+        },
+        
+        {
+            "identifier":2,
+            "status":false,
+            "title":"No Strainer! (2)",
+            "text": "Oops! Can't serve without it! We're on it.",
+            "image":"generalErr.jpeg"
+        },
+        
+        {
+            "identifier":3,
+            "status":false,
+            "title":"Invalid Data! (3)",
+            "text": "Oops! That data doesn't quite blend. Please check and try again!",
+            "image":"generalErr.jpeg"
+        }
+    ]
+}
+  
