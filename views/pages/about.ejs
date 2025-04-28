@@ -22,6 +22,45 @@
     About us!
     Nothing much yet :(
 
+    <div class="container">
+        <h1>Video Player with Multiple Language Subtitles</h1>
+
+        <div class="video-container">
+            <video
+                    controls
+                    poster="/resource/images/poster_4WaysIceTea.png"
+                    preload="none"
+                    width="100%">
+
+                <!-- Multiple video sources in different formats -->
+                <source src="/resource/videos/4WaysIceTea.mp4" type="video/mp4">
+                <source src="/resource/videos/4WaysIceTea.mov" type="video/mov">
+
+                <!-- VTT tracks in multiple languages -->
+                <track
+                        label="Romanian"
+                        kind="subtitles"
+                        srclang="ro"
+                        src="/resource/videos/ro_4WaysIceTea.vtt"
+                        default>
+
+                <track
+                        label="English"
+                        kind="subtitles"
+                        srclang="en"
+                        src="/resource/videos/en_4WaysIceTea.vtt">
+
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <div>
+            <h2>About the VTT Subtitles</h2>
+            <p>The video includes subtitles in Romanian (default) and English. The subtitles have been styled with a transparent background, white text color, and black text shadow for better visibility.</p>
+            <p>At certain points in the video, text will appear both at the top and bottom of the video simultaneously.</p>
+        </div>
+    </div>
+
 </main>
 
 

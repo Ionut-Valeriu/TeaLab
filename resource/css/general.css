@@ -18,6 +18,62 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
+a{
+    color: var(--c_-1);
+}
+a:visited{
+    color: var(--c_5);
+}
+
+a:active{
+    border: 1px solid var(--c_-1);
+}
+
+a[href^="http"]::before {
+    content: "⮳";
+    font-size: 1.5em;
+    color: var(--c_0);
+}
+
+a[href^="http"]:hover::before {
+    color: var(--c_5);
+}
+
+main a {
+    position: relative;
+    display: inline-block;
+    background-image: radial-gradient(circle, var(--c_13) 0%, var(--c_13) 40%, transparent 80%, transparent 100%);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 0 0;
+    transition: background-size 0.5s ease;
+}
+
+main a:hover {
+    background-size: 100% 100%;
+}
+
+.video-container {
+    margin: 20px 0;
+    width: 100%;
+    min-width: 300px;
+    max-width: 1080px;
+}
+
+video {
+    width: 100%;
+    min-width: 320px;
+    max-width: 1000px;
+    background-color: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+::cue {
+    background-color: transparent;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+}
+
 .cookie{
     margin-top: 40px;
     font-size: 1.5em;
@@ -51,6 +107,14 @@ body{
     --c_3: #FEFAE0;
     --c_4: #FAEDCD;
     --c_5: #D4A373;
+    --c_10: #A8C3D1;
+    --c_11: #CDB4DB;
+    --c_12: #F2D0D9;
+    --c_13: #E6C49A;
+    --c_14: #FFE5B4;
+    --c_15: #F7E1AE;
+
+
 
     font-family: "Indie Flower", cursive;
     font-weight: 400;
