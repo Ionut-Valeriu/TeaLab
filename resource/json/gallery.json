@@ -1,0 +1,197 @@
+{
+  "gallery_path": "/resource/images/gallery",
+  "images": [
+    {
+      "image_path": "assam_black.jpg",
+      "title": "Assam black tea",
+      "description": "Bold, malty tea with a strong caffeine kick",
+      "time": [
+        "M", "A"
+      ]
+    },
+    {
+      "image_path": "matcha_tea.jpg",
+      "title": "Matcha tea",
+      "description": "Fine powdered green tea offering clean, lasting energy",
+      "time": [
+        "M", "A"
+      ]
+    },
+    {
+      "image_path": "yerba_mate.jpg",
+      "title": "Yerba Mate tea",
+      "description": "Herbal South American tea known for mental alertness",
+      "time": [
+        "M", "A"
+      ]
+    },
+    {
+      "image_path": "sencha.jpeg",
+      "title": "Sencha tea",
+      "description": "Japanese green tea with a fresh, grassy flavor",
+      "time": [
+        "M", "A"
+      ]
+    },
+    {
+      "image_path": "masala_chai.jpg",
+      "title": "Chai masala tea",
+      "description": "Spiced black tea blend that warms and energizes",
+      "time": [
+        "M", "E"
+      ]
+    },
+    {
+      "image_path": "gunpowder_green_tea.jpg",
+      "title": "Gunpowder green tea",
+      "description": "Rolled green leaves with a smoky edge",
+      "time": [
+        "M", "A"
+      ]
+    },
+    {
+      "image_path": "pu-erh_tea.jpg",
+      "title": "Pu-erh tea",
+      "description": "Fermented earthy tea, good for digestion and stamina",
+      "time": [
+        "M", "E"
+      ]
+    },
+    {
+      "image_path": "tulsi.jpeg",
+      "title": "Tulsi (Holy Basil) tea",
+      "description": "Adaptogenic herb for stress and balance",
+      "time": [
+        "M", "A"
+      ]
+    },
+    {
+      "image_path": "ginger_tea.jpg",
+      "title": "Ginger tea",
+      "description": "Warming root tea that aids digestion and circulation",
+      "time": [
+        "M", "E"
+      ]
+    },
+    {
+      "image_path": "oolong.jpg",
+      "title": "Oolong tea",
+      "description": "Semi-oxidized tea with a smooth, complex profile.",
+      "time": [
+        "M", "A"
+      ]
+    },
+    {
+      "image_path": "jasmine_green_tea.jpg",
+      "title": "Jasmine green tea",
+      "description": "Floral green tea, smooth and calming",
+      "time": [
+        "A", "E"
+      ]
+    },
+    {
+      "image_path": "lemongrass_tea.jpg",
+      "title": "Lemongrass tea",
+      "description": "Citrusy and refreshing, naturally uplifting",
+      "time": [
+        "A", "E"
+      ]
+    },
+    {
+      "image_path": "genmaicha_tea.jpg",
+      "title": "Genmaicha tea",
+      "description": "Green tea with roasted rice, nutty and soothing",
+      "time": [
+        "A", "E"
+      ]
+    },
+    {
+      "image_path": "chamomile_tea.jpg",
+      "title": "Chamomile tea",
+      "description": "Classic calming flower tea for the evening",
+      "time": [
+        "E", "N"
+      ]
+    },
+    {
+      "image_path": "rooibos_tea.jpg",
+      "title": "Rooibos tea",
+      "description": "Naturally sweet, caffeine-free red bush tea",
+      "time": [
+        "E", "N"
+      ]
+    },
+    {
+      "image_path": "mint.jpg",
+      "title": "Mint tea",
+      "description": "Cool and crisp herbal tea for digestion and clarity",
+      "time": [
+        "E", "N"
+      ]
+    },
+    {
+      "image_path": "honeybush_tea.jpg",
+      "title": "Honeybush tea",
+      "description": "Similar to rooibos, with honey-like sweetness",
+      "time": [
+        "E", "N"
+      ]
+    },
+    {
+      "image_path": "lavender.jpg",
+      "title": "Lavender tea",
+      "description": "Floral herb tea that helps relax nerves",
+      "time": [
+        "N", "E"
+      ]
+    },
+    {
+      "image_path": "lemon_balm_tea.jpg",
+      "title": "Lemon balm tea",
+      "description": "Mild citrus-mint tea for anxiety and calm",
+      "time": [
+        "N", "E"
+      ]
+    },
+    {
+      "image_path": "valerian_root_tea.jpg",
+      "title": "Valerian root tea",
+      "description": "Potent herbal sedative for deep sleep",
+      "time": [
+        "N"
+      ]
+    },
+    {
+      "image_path": "passionflower_tea.jpg",
+      "title": "Passionflower tea",
+      "description": "Gently reduces racing thoughts and tension",
+      "time": [
+        "N"
+      ]
+    },
+    {
+      "image_path": "skullcap_tea.jpg",
+      "title": "Skullcap tea",
+      "description": "Herbal tea that relaxes the nervous system",
+      "time": [
+        "N"
+      ]
+    },
+    {
+      "image_path": "ashwagandha-root-tea.jpg",
+      "title": "Ashwagandha tea",
+      "description": "Adaptogen that calms the mind and supports rest",
+      "time": [
+        "N"
+      ]
+    },
+    {
+      "image_path": "blue_lotus_tea.jpg",
+      "title": "Blue lotus tea",
+      "description": "Mildly euphoric tea for dreaming and sleep",
+      "time": [
+        "N"
+      ]
+    }
+  ]
+}
