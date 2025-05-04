@@ -219,3 +219,15 @@ Stage 0:
 
 
 </details>
+
+---
+
+<details>
+<summary>Stage 5:</summary>
+
+- [ ] static gallery
+- [x] github
+- [ ] automatic compilation for scss
+- [ ] bootstrap customize
+
+</details>
