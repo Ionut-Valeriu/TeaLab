@@ -1,9 +1,12 @@
+"use strict";
+
 // requirements
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const sharp = require("sharp");
 
-app = express();
+let app = express();
 
 // debug
 console.log("Project folder: ", __dirname);
@@ -12,11 +15,12 @@ console.log("Path to working directory: ",  process.cwd());
 
 app.set("view engine", "ejs")
 
-obGlobal={
-    obErrors:null
+let obGlobal={
+    obErrors:null,
+    obImages:null
 }
 
-vect_foldere = ["temp", "temp1"]
+let vect_foldere = ["temp", "temp1"]
 for (let folder of vect_foldere){
     let folder_path = path.join(__dirname, folder)
 
@@ -64,7 +68,33 @@ function showError(res, identifier, title, text, image){
     })
 }
 
-initErrors()
+initErrors();
+
+function initImages(){
+    var content = fs.readFileSync(path.join(__dirname,"resource/json/gallery.json")).toString("utf-8");
+
+    obGlobal.obImages=JSON.parse(content)
+    let vImages = obGlobal.obImages.images;
+
+    let absPath = path.join(__dirname,obGlobal.obImages.gallery_path);
+    let absPathMedium = path.join(__dirname,obGlobal.obImages.gallery_path,"medium");
+
+    if(!fs.existsSync(absPathMedium)) fs.mkdirSync(absPathMedium);
+
+    for (let image of vImages){
+        let [fileName, ext] = image.file.split("/");
+
+        let absFilePath = path.join(absPath, image.file);
+        let absMediumFilePath = path.join(absPathMedium, fileName+".webp");
+
+        sharp(absFilePath).resize(300).toFile(absMediumFilePath);
+        image.medium_file=path.join("/", obGlobal.obImages.gallery_path, "medium", fileName+".webp");
+        image.file=path.join("/", obGlobal.obImages.gallery_path, image.file);
+    }
+    console.log(obGlobal.obImages);
+}
+
+initImages();
 
 // static directories
 app.use("/resource", express.static(path.join(__dirname, "resource")))
@@ -80,7 +110,7 @@ app.get("/about", function(req, res){
 })
 
 app.get("/favicon.ico", function(req, res){
-    res.sendfile(path.join(__dirname, "resource/images/favicon/favicon.ico"));
+    res.sendFile(path.join(__dirname, "resource/images/favicon/favicon.ico"));
 })
 
 app.get(/^\/resource\/[a-zA-Z0-9_\/]*$/, function(req, res){
@@ -94,7 +124,7 @@ app.get("/*.ejs", function(req, res){
 // default route
 app.get("/*", function(req, res){
     try{
-        res.render("pages" + req.url, function(err, rezultatRandare){
+        res.render("pages" + req.url, function(err, renderResult){
             if (err){
                 if(err.message.startsWith("Failed to lookup view")){
                     showError(res, 404);
@@ -104,13 +134,13 @@ app.get("/*", function(req, res){
                 }
             }
             else{
-                console.log(rezultatRandare);
-                res.send(rezultatRandare);
+                console.log(renderResult);
+                res.send(renderResult);
             }
         });
-    }catch(errRandare){
-        if (errRandare){
-            if(errRandare.message.startsWith("Cannot find module")){
+    }catch(errRendering){
+        if (errRendering){
+            if(errRendering.message.startsWith("Cannot find module")){
                 showError(res, 404);
             }
             else{
