@@ -1,0 +1,39 @@
+
+<section id="static-gallery">
+
+    <div id="grid-gallery">
+        <%
+        const timeMap = [
+            { start: 6, end: 10, time: "M" },
+            { start: 11, end: 15, time: "A" },
+            { start: 16, end: 20, time: "E" }
+        ];
+
+        function getTimePeriod(hour) {
+            for (const { start, end, time } of timeMap) {
+                if (hour >= start && hour <= end) {
+                    return time;
+                }
+            }
+            return "N";
+        }
+
+        const hour = new Date().getHours();
+        const period = getTimePeriod(hour);
+
+        for (let imag of locals.images) {
+            if (imag.time && imag.time.includes(period)) { %>
+                <picture>
+                    <source srcset="<%- imag.medium_file  %>" media="screen and (max-width:1000px)" />
+                    <img src="<%- imag.file  %>" alt="tea">
+                </picture>
+            <% }
+        } %>
+
+
+    </div>
+
+</section>
+
+
+

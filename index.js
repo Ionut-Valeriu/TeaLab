@@ -52,8 +52,6 @@ function showError(res, identifier, title, text, image){
         customTitle=title || error.title;
         customText=text || error.text;
         customImage=image || error.image;
-
-
     }
     else{
         const err = obGlobal.obErrors.default_error;
@@ -102,11 +100,15 @@ app.use("/node_modules", express.static(path.join(__dirname, "node_modules")))
 
 // access home page
 app.get(["/", "/home", "/index"], function(req, res){
-    res.render("pages/index", {ip:req.ip});
+    res.render("pages/index", {ip:req.ip, images:obGlobal.obImages.images});
 })
 
 app.get("/about", function(req, res){
     res.render("pages/about");
+})
+
+app.get("/gallery", function(req, res){
+    res.render("pages/galleryPage", {images:obGlobal.obImages.images});
 })
 
 app.get("/favicon.ico", function(req, res){
