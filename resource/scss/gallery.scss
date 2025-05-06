@@ -1,0 +1,40 @@
+#static-gallery{
+  margin-top:var(--Top-Spacing);
+  padding-left:var(--gap);
+  padding-right:var(--gap);
+}
+
+#grid-gallery {
+  display:grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-row-gap:0.5em;
+  grid-column-gap:0.5em;
+  counter-reset: nrimag 3;  /* nrimag=3 */
+  img{
+    width: 100%;
+  }
+
+  $columns: 4;
+  $rows: 3;
+  $i: 1;
+  $j: 1;
+  @while $i <= 12 {
+    @if ($i != 6 and $i != 7) {
+      $row: ceil(calc($i / $columns));
+      $col: ($i - 1) % $columns + 1;
+
+      figure:nth-child(#{$j}) {
+        grid-area: #{$row} / #{$col} / #{($row + 1)} / #{($col + 1)};
+      }
+      $j: $j + 1;
+
+    }
+    $i: $i + 1;
+  }
+}
+
+@media screen and (max-width:500px){
+  #grid-gallery {
+    display:block;
+  }
+}

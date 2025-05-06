@@ -2,6 +2,7 @@
 <section id="static-gallery">
 
     <div id="grid-gallery">
+
         <%
         const timeMap = [
             { start: 6, end: 10, time: "M" },
@@ -21,15 +22,22 @@
         const hour = new Date().getHours();
         const period = getTimePeriod(hour);
 
+        let cnt = 0
+
         for (let imag of locals.images) {
-            if (imag.time && imag.time.includes(period)) { %>
-                <picture>
+            if (cnt === 10) break;
+            if (imag.time && imag.time.includes(period)) {
+                cnt ++;
+        %>
+                <figure>
                     <source srcset="<%- imag.medium_file  %>" media="screen and (max-width:1000px)" />
                     <img src="<%- imag.file  %>" alt="tea">
-                </picture>
-            <% }
-        } %>
-
+                    <figcaption></figcaption>
+                </figure>
+        <%
+            }
+        }
+        %>
 
     </div>
 
