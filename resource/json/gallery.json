@@ -15,7 +15,11 @@
       "description": "Fine powdered green tea offering clean, lasting energy",
       "time": [
         "M", "A"
-      ]
+      ],
+      "license": "CC-BY 4.0",
+      "author": "Irvan Ary Maulana",
+      "source": "https://commons.wikimedia.org/wiki/File:Matcha_tea_latte_with_rosetta_latte_art.jpg",
+      "alt": "Photo by Irvan Ary Maulana, licensed under CC-BY 4.0"
     },
     {
       "file": "yerba_mate.jpg",

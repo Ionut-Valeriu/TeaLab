@@ -1,4 +1,3 @@
-
 <section id="static-gallery">
 
     <div id="grid-gallery">
@@ -10,17 +9,19 @@
             { start: 16, end: 20, time: "E" }
         ];
 
-        function getTimePeriod(hour) {
+        function getTimePeriod() {
+            const hour = new Date().getHours();
+
             for (const { start, end, time } of timeMap) {
                 if (hour >= start && hour <= end) {
                     return time;
                 }
             }
+
             return "N";
         }
 
-        const hour = new Date().getHours();
-        const period = getTimePeriod(hour);
+        const period = getTimePeriod();
 
         let cnt = 0
 
@@ -30,9 +31,15 @@
                 cnt ++;
         %>
                 <figure>
+                    <figcaption><%- imag.title%></figcaption>
                     <source srcset="<%- imag.medium_file  %>" media="screen and (max-width:1000px)" />
-                    <img src="<%- imag.file  %>" alt="tea">
-                    <figcaption></figcaption>
+                    <img src="<%- imag.file  %>" title="
+                    <% if (imag.alt) {%>
+                        <%- imag.alt%>
+                    <%} else if(imag.title){%>
+                        <%- imag.title%>
+                    <%}%>
+                    " alt="tea">
                 </figure>
         <%
             }
@@ -42,6 +49,3 @@
     </div>
 
 </section>
-
-
-

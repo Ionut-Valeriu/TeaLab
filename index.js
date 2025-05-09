@@ -20,8 +20,8 @@ let obGlobal={
     obImages:null
 }
 
-let vect_foldere = ["temp", "temp1"]
-for (let folder of vect_foldere){
+let directories_vector = ["temp", "temp1"]
+for (let folder of directories_vector){
     let folder_path = path.join(__dirname, folder)
 
     if (!fs.existsSync(folder_path)) fs.mkdirSync(folder_path)
@@ -40,7 +40,6 @@ function initErrors(){
     console.log(obGlobal.obErrors)
 
 }
-
 function showError(res, identifier, title, text, image){
     let error= obGlobal.obErrors.info_errors.find(function(elem){
                 return elem.identifier===identifier
@@ -65,7 +64,6 @@ function showError(res, identifier, title, text, image){
         image: customImage
     })
 }
-
 initErrors();
 
 function initImages(){
@@ -91,7 +89,6 @@ function initImages(){
     }
     console.log(obGlobal.obImages);
 }
-
 initImages();
 
 // static directories

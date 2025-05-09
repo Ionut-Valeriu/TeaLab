@@ -1,7 +1,6 @@
 #static-gallery {
   margin-top: var(--Top-Spacing);
-  padding-left: var(--gap);
-  padding-right: var(--gap);
+  width: 100%;
 }
 
 #grid-gallery {
@@ -9,10 +8,46 @@
   grid-template-columns: repeat(4, 1fr);
   grid-row-gap: 0.5em;
   grid-column-gap: 0.5em;
-  counter-reset: nrimag 3; /* nrimag=3 */
+  grid-auto-rows: 1fr;
+  counter-reset: nrimag 0;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+#grid-gallery figure {
+  z-index: 0;
+  transform: scale(1);
+  transition: transform 1.25s;
+}
+#grid-gallery figure:hover {
+  position: relative;
+  transform: scale(1.3) translateY(-11%);
+  transition: transform 1.25s;
+  z-index: 1;
+}
+#grid-gallery figure:hover figcaption {
+  background-color: var(--c_3);
+  color: var(--c_5);
 }
 #grid-gallery img {
   width: 100%;
+}
+#grid-gallery figcaption {
+  background-color: var(--c_5);
+  color: var(--c_3);
+  text-align: center;
+  font-size: 1.2em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  padding-top: var(--gap);
+  padding-bottom: var(--gap);
+  font-weight: bold;
+}
+#grid-gallery figcaption::before {
+  content: counter(nrimag, lower-latin) ") ";
+  counter-increment: nrimag 1;
 }
 #grid-gallery figure:nth-child(1) {
   grid-area: 1/1/2/2;
@@ -45,7 +80,42 @@
   grid-area: 3/4/4/5;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1200px) {
+  #grid-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #grid-gallery figure:nth-child(1) {
+    grid-area: 1/1/2/2;
+  }
+  #grid-gallery figure:nth-child(2) {
+    grid-area: 1/2/2/3;
+  }
+  #grid-gallery figure:nth-child(3) {
+    grid-area: 2/1/3/2;
+  }
+  #grid-gallery figure:nth-child(4) {
+    grid-area: 2/2/3/3;
+  }
+  #grid-gallery figure:nth-child(5) {
+    grid-area: 3/1/4/2;
+  }
+  #grid-gallery figure:nth-child(6) {
+    grid-area: 3/2/4/3;
+  }
+  #grid-gallery figure:nth-child(7) {
+    grid-area: 4/1/5/2;
+  }
+  #grid-gallery figure:nth-child(8) {
+    grid-area: 4/2/5/3;
+  }
+  #grid-gallery figure:nth-child(9) {
+    grid-area: 5/1/6/2;
+  }
+  #grid-gallery figure:nth-child(10) {
+    grid-area: 5/2/6/3;
+  }
+}
+@media screen and (max-width: 550px) {
   #grid-gallery {
     display: block;
   }
