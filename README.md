@@ -1,12 +1,12 @@
 # TeaLab
 A structured and responsive tea house website built with modern web technologies. Designed for scalability and ease of navigation.
 
-## Points: 2.2
+## Points: 2.8 + 0.285 = 3.085
 - stage 0: 0.3
-- stage 1: 0.5 + 0.35
-- stage 2: 0.5
-- stage 3: 0.55
-- stage 4:
+- stage 1: 0.85 + 0.1275
+- stage 2: 0.5 + 0.075
+- stage 3: 0.55 + 0.0825
+- stage 4: 0.6
 
 Stage 0:
 
