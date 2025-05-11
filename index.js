@@ -5,6 +5,7 @@ const express = require("express");
 const path = require("path");
 const fs = require("fs");
 const sharp = require("sharp");
+const sass = require("sass");
 
 let app = express();
 
@@ -17,15 +18,63 @@ app.set("view engine", "ejs")
 
 let obGlobal={
     obErrors:null,
-    obImages:null
+    obImages:null,
+    scssDir: path.join(__dirname,"resource/scss"),
+    cssDir: path.join(__dirname,"resource/css"),
+    backupDir: path.join(__dirname,"resource/backup")
 }
 
-let directories_vector = ["temp", "temp1"]
+let directories_vector = ["temp", "temp1", "backup"]
 for (let folder of directories_vector){
     let folder_path = path.join(__dirname, folder)
 
     if (!fs.existsSync(folder_path)) fs.mkdirSync(folder_path)
 }
+
+// compile all scss into css
+function compileScss (scssPath, cssPath){
+    console.log("CSS: ", cssPath);
+    if (!cssPath){
+        let filePath=path.basename(scssPath);
+        let fileName = filePath.split(".")[0]
+        cssPath = fileName + ".css";
+    }
+
+    if (!path.isAbsolute(scssPath))
+        scssPath = path.join(obGlobal.scssDir, scssPath);
+    if (!path.isAbsolute(cssPath))
+        cssPath =path.join(obGlobal.cssDir, cssPath );
+    
+    let backupPath = path.join(obGlobal.backupDir, "resource/css");
+    if (!fs.existsSync(backupPath))
+        fs.mkdirSync(backupPath,{recursive:true})
+    
+    let cssFileName=path.basename(cssPath);
+    if (fs.existsSync(cssPath)){
+        fs.copyFileSync(cssPath, path.join(obGlobal.backupDir, "resource/css", cssFileName + '-' + (new Date()).getTime()) )
+    }
+    let result = sass.compile(scssPath, {"sourceMap":true});
+    fs.writeFileSync(cssPath, result.css)
+}
+
+
+let dirVector = fs.readdirSync(obGlobal.scssDir);
+for( let fileName of dirVector ){
+    if (path.extname(fileName)===".scss"){
+        compileScss(fileName);
+    }
+}
+
+
+fs.watch(obGlobal.scssDir, function(event, fileName){
+    console.log(event, fileName);
+    if (event==="change" || event==="rename"){
+        let fullPath=path.join(obGlobal.scssDir, fileName);
+        if (fs.existsSync(fullPath)){
+            compileScss(fullPath);
+        }
+    }
+})
 
 // Error handling
 function initErrors(){
