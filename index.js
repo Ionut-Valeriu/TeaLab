@@ -45,14 +45,14 @@ function compileScss (scssPath, cssPath){
     if (!path.isAbsolute(cssPath))
         cssPath =path.join(obGlobal.cssDir, cssPath );
     
-    let backupPath = path.join(obGlobal.backupDir, "resource/css");
-    if (!fs.existsSync(backupPath))
-        fs.mkdirSync(backupPath,{recursive:true})
-    
-    let cssFileName=path.basename(cssPath).split(".")[0];
-    if (fs.existsSync(cssPath)){
-        fs.copyFileSync(cssPath, path.join(obGlobal.backupDir, "resource/css", cssFileName + '-' + (new Date()).getTime() + ".css") )
-    }
+    // let backupPath = path.join(obGlobal.backupDir, "resource/css");
+    // if (!fs.existsSync(backupPath))
+    //     fs.mkdirSync(backupPath,{recursive:true})
+    //
+    // let cssFileName=path.basename(cssPath).split(".")[0];
+    // if (fs.existsSync(cssPath)){
+    //     fs.copyFileSync(cssPath, path.join(obGlobal.backupDir, "resource/css", cssFileName + '-' + (new Date()).getTime() + ".css") )
+    // }
     let result = sass.compile(scssPath, {"sourceMap":true});
     fs.writeFileSync(cssPath, result.css)
 }

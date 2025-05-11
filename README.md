@@ -225,9 +225,15 @@ Stage 0:
 <details>
 <summary>Stage 5:</summary>
 
-- [ ] static gallery
+- [x] static gallery
 - [x] github
-- [ ] automatic compilation for scss
-- [ ] bootstrap customize
+- [x] automatic compilation for scss
+- [x] bootstrap customize
+- [x] CSS effects:
+  - [x] Reflexion
+  - [x] HR style
+
+Bonus:
+- [x] files in backup have timestamps
 
 </details>
