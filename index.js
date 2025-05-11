@@ -49,9 +49,9 @@ function compileScss (scssPath, cssPath){
     if (!fs.existsSync(backupPath))
         fs.mkdirSync(backupPath,{recursive:true})
     
-    let cssFileName=path.basename(cssPath);
+    let cssFileName=path.basename(cssPath).split(".")[0];
     if (fs.existsSync(cssPath)){
-        fs.copyFileSync(cssPath, path.join(obGlobal.backupDir, "resource/css", cssFileName + '-' + (new Date()).getTime()) )
+        fs.copyFileSync(cssPath, path.join(obGlobal.backupDir, "resource/css", cssFileName + '-' + (new Date()).getTime() + ".css") )
     }
     let result = sass.compile(scssPath, {"sourceMap":true});
     fs.writeFileSync(cssPath, result.css)
@@ -116,7 +116,7 @@ function showError(res, identifier, title, text, image){
 initErrors();
 
 function initImages(){
-    var content = fs.readFileSync(path.join(__dirname,"resource/json/gallery.json")).toString("utf-8");
+    const content = fs.readFileSync(path.join(__dirname, "resource/json/gallery.json")).toString("utf-8");
 
     obGlobal.obImages=JSON.parse(content)
     let vImages = obGlobal.obImages.images;
@@ -127,7 +127,7 @@ function initImages(){
     if(!fs.existsSync(absPathMedium)) fs.mkdirSync(absPathMedium);
 
     for (let image of vImages){
-        let [fileName, ext] = image.file.split("/");
+        let fileName = image.file.split("/")[0];
 
         let absFilePath = path.join(absPath, image.file);
         let absMediumFilePath = path.join(absPathMedium, fileName+".webp");
