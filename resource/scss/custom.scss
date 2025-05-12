@@ -1,22 +1,35 @@
 $font-family-base: "Indie Flower", cursive;
 $font-weight-base: 400;
 
-@use '../../node_modules/bootstrap/scss/bootstrap.scss' with
-(
-  $primary: #FAEDCD,
-  $secondary: #E9EDC9,
+$primary: #FAEDCD;
+$secondary: #E9EDC9;
+
+$body-bg: white;
+$body-color: #606C38;
+
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with (
+  $primary: $primary,
+  $secondary: $secondary,
 
   $font-family-base: $font-family-base,
   $font-weight-base: $font-weight-base,
 
+  $body-bg: $body-bg,
+  $body-color: $body-color,
+
   $link-color: #606C38,
   $link-decoration: none,
 
+  $btn-font-weight: 600,
+  $border-radius: 1rem,
+  $h1-font-size: 3rem,
+  $h2-font-size: 2.5rem,
+  $h3-font-size: 2rem,
 
+  $input-btn-padding-y: .75rem
 );
 
 ::selection {
   background: #E6C49A;
-  color: #606C38;
+  color: $body-color;
 }
-
