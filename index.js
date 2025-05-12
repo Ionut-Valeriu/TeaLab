@@ -1,9 +1,13 @@
+"use strict";
+
 // requirements
 const express = require("express");
 const path = require("path");
 const fs = require("fs");
+const sharp = require("sharp");
+const sass = require("sass");
 
-app = express();
+let app = express();
 
 // debug
 console.log("Project folder: ", __dirname);
@@ -12,16 +16,65 @@ console.log("Path to working directory: ",  process.cwd());
 
 app.set("view engine", "ejs")
 
-obGlobal={
-    obErrors:null
+let obGlobal={
+    obErrors:null,
+    obImages:null,
+    scssDir: path.join(__dirname,"resource/scss"),
+    cssDir: path.join(__dirname,"resource/css"),
+    backupDir: path.join(__dirname,"resource/backup")
 }
 
-vect_foldere = ["temp", "temp1"]
-for (let folder of vect_foldere){
+let directories_vector = ["temp", "temp1", "backup"]
+for (let folder of directories_vector){
     let folder_path = path.join(__dirname, folder)
 
     if (!fs.existsSync(folder_path)) fs.mkdirSync(folder_path)
 }
+
+// compile all scss into css
+function compileScss (scssPath, cssPath){
+    console.log("CSS: ", cssPath);
+    if (!cssPath){
+        let filePath=path.basename(scssPath);
+        let fileName = filePath.split(".")[0]
+        cssPath = fileName + ".css";
+    }
+
+    if (!path.isAbsolute(scssPath))
+        scssPath = path.join(obGlobal.scssDir, scssPath);
+    if (!path.isAbsolute(cssPath))
+        cssPath =path.join(obGlobal.cssDir, cssPath );
+    
+    let backupPath = path.join(obGlobal.backupDir, "resource/css");
+    if (!fs.existsSync(backupPath))
+        fs.mkdirSync(backupPath,{recursive:true})
+
+    let cssFileName=path.basename(cssPath).split(".")[0];
+    if (fs.existsSync(cssPath)){
+        fs.copyFileSync(cssPath, path.join(obGlobal.backupDir, "resource/css", cssFileName + '-' + (new Date()).getTime() + ".css") )
+    }
+    let result = sass.compile(scssPath, {"sourceMap":true});
+    fs.writeFileSync(cssPath, result.css)
+}
+
+
+let dirVector = fs.readdirSync(obGlobal.scssDir);
+for( let fileName of dirVector ){
+    if (path.extname(fileName)===".scss"){
+        compileScss(fileName);
+    }
+}
+
+
+fs.watch(obGlobal.scssDir, function(event, fileName){
+    console.log(event, fileName);
+    if (event==="change" || event==="rename"){
+        let fullPath=path.join(obGlobal.scssDir, fileName);
+        if (fs.existsSync(fullPath)){
+            compileScss(fullPath);
+        }
+    }
+})
 
 // Error handling
 function initErrors(){
@@ -36,7 +89,6 @@ function initErrors(){
     console.log(obGlobal.obErrors)
 
 }
-
 function showError(res, identifier, title, text, image){
     let error= obGlobal.obErrors.info_errors.find(function(elem){
                 return elem.identifier===identifier
@@ -48,8 +100,6 @@ function showError(res, identifier, title, text, image){
         customTitle=title || error.title;
         customText=text || error.text;
         customImage=image || error.image;
-
-
     }
     else{
         const err = obGlobal.obErrors.default_error;
@@ -63,8 +113,32 @@ function showError(res, identifier, title, text, image){
         image: customImage
     })
 }
+initErrors();
 
-initErrors()
+function initImages(){
+    const content = fs.readFileSync(path.join(__dirname, "resource/json/gallery.json")).toString("utf-8");
+
+    obGlobal.obImages=JSON.parse(content)
+    let vImages = obGlobal.obImages.images;
+
+    let absPath = path.join(__dirname,obGlobal.obImages.gallery_path);
+    let absPathMedium = path.join(__dirname,obGlobal.obImages.gallery_path,"medium");
+
+    if(!fs.existsSync(absPathMedium)) fs.mkdirSync(absPathMedium);
+
+    for (let image of vImages){
+        let fileName = image.file.split("/")[0];
+
+        let absFilePath = path.join(absPath, image.file);
+        let absMediumFilePath = path.join(absPathMedium, fileName+".webp");
+
+        sharp(absFilePath).resize(300).toFile(absMediumFilePath);
+        image.medium_file=path.join("/", obGlobal.obImages.gallery_path, "medium", fileName+".webp");
+        image.file=path.join("/", obGlobal.obImages.gallery_path, image.file);
+    }
+    console.log(obGlobal.obImages);
+}
+initImages();
 
 // static directories
 app.use("/resource", express.static(path.join(__dirname, "resource")))
@@ -72,15 +146,19 @@ app.use("/node_modules", express.static(path.join(__dirname, "node_modules")))
 
 // access home page
 app.get(["/", "/home", "/index"], function(req, res){
-    res.render("pages/index", {ip:req.ip});
+    res.render("pages/index", {ip:req.ip, images:obGlobal.obImages.images});
 })
 
 app.get("/about", function(req, res){
     res.render("pages/about");
 })
 
+app.get("/gallery", function(req, res){
+    res.render("pages/galleryPage", {images:obGlobal.obImages.images});
+})
+
 app.get("/favicon.ico", function(req, res){
-    res.sendfile(path.join(__dirname, "resource/images/favicon/favicon.ico"));
+    res.sendFile(path.join(__dirname, "resource/images/favicon/favicon.ico"));
 })
 
 app.get(/^\/resource\/[a-zA-Z0-9_\/]*$/, function(req, res){
@@ -94,7 +172,7 @@ app.get("/*.ejs", function(req, res){
 // default route
 app.get("/*", function(req, res){
     try{
-        res.render("pages" + req.url, function(err, rezultatRandare){
+        res.render("pages" + req.url, function(err, renderResult){
             if (err){
                 if(err.message.startsWith("Failed to lookup view")){
                     showError(res, 404);
@@ -104,13 +182,13 @@ app.get("/*", function(req, res){
                 }
             }
             else{
-                console.log(rezultatRandare);
-                res.send(rezultatRandare);
+                console.log(renderResult);
+                res.send(renderResult);
             }
         });
-    }catch(errRandare){
-        if (errRandare){
-            if(errRandare.message.startsWith("Cannot find module")){
+    }catch(errRendering){
+        if (errRendering){
+            if(errRendering.message.startsWith("Cannot find module")){
                 showError(res, 404);
             }
             else{

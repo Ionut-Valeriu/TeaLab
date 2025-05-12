@@ -1,0 +1,22 @@
+$font-family-base: "Indie Flower", cursive;
+$font-weight-base: 400;
+
+@use '../../node_modules/bootstrap/scss/bootstrap.scss' with
+(
+  $primary: #FAEDCD,
+  $secondary: #E9EDC9,
+
+  $font-family-base: $font-family-base,
+  $font-weight-base: $font-weight-base,
+
+  $link-color: #606C38,
+  $link-decoration: none,
+
+
+);
+
+::selection {
+  background: #E6C49A;
+  color: #606C38;
+}
+
