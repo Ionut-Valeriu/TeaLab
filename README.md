@@ -232,6 +232,7 @@ Stage 0:
 - [x] CSS effects:
   - [x] Reflexion
   - [x] HR style
+  - [x] modify at least 2 properties of the selected text
 
 Bonus:
 - [x] files in backup have timestamps

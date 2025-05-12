@@ -10,6 +10,13 @@ $font-weight-base: 400;
   $font-weight-base: $font-weight-base,
 
   $link-color: #606C38,
-  $link-decoration: none
+  $link-decoration: none,
+
+
 );
+
+::selection {
+  background: #E6C49A;
+  color: #606C38;
+}
 
