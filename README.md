@@ -219,3 +219,22 @@ Stage 0:
 
 
 </details>
+
+---
+
+<details>
+<summary>Stage 5:</summary>
+
+- [x] static gallery
+- [x] github
+- [x] automatic compilation for scss
+- [x] bootstrap customize
+- [x] CSS effects:
+  - [x] Reflexion
+  - [x] HR style
+  - [x] modify at least 2 properties of the selected text
+
+Bonus:
+- [x] files in backup have timestamps
+
+</details>
