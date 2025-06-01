@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--Metas-->
+    <meta name="keywords" content="tea, teas, teahouse, tea delivery, relaxation, warm atmosphere, tea subscriptions, tealab, TeaLab">
+    <meta name="description" content="Discover a cozy tea house offering a curated selection of premium teas, handcrafted accessories, and immersive tasting experiences. Enjoy expertly brewed teas, explore our collection, and join exclusive tea workshops and events.">
+
+    <%- include("../fragments/head.ejs") %>
+
+    <!--Title-->
+    <title>Products</title>
+</head>
+<body>
+
+
+<%- include("../fragments/header.ejs")%>
+
+
+
+<main>
+
+    <section>
+        <h2>Product page</h2>
+        <article id="art-product">
+            <h3><span class="name"><%- locals.prod.name %></span></h3>
+            <p>Price: <span class="price"><%- locals.prod.pret %> </span></p>
+            <p>Description: <span class="descriere"><%- locals.prod.descriere %> </span></p>
+<!--            <p>Ingrediente: <span class="ingrediente"><%- locals.prod.ingrediente %> </span></p>-->
+<!--            <p>Calorii: <span class="calorii"><%- locals.prod.calorii %> </span></p>-->
+            <p>Quantity: <span class="gramaj"><%- locals.prod.gramaj %> </span></p>
+            <p>Category: <span class="categorie"><%- locals.prod.categorie %> </span></p>
+<!--            <p>Pentru diabetici: <span class="pt_diabetici"><%- locals.prod.pt_diabetici %> </span></p>-->
+            <p>Add date: <span class="categorie"><%- locals.prod.data_adaugare %> </span></p>
+            <figure class="imag-produs">
+                <img  src="/resource/images/products/<%- locals.prod.imagine %>" alt="[imagine <%- locals.prod.nume %>]" />
+            </figure>
+        </article>
+    </section>
+
+</main>
+
+
+
+<%- include("../fragments/footer.ejs")%>
+
+</body>
+</html>

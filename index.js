@@ -6,6 +6,27 @@ const path = require("path");
 const fs = require("fs");
 const sharp = require("sharp");
 const sass = require("sass");
+const pg = require("pg");
+
+const Client=pg.Client;
+
+let client=new Client({
+    database:"TeaLab",
+    user:"username1",
+    password:"password1",
+    host:"localhost",
+    port:5432
+})
+
+client.connect()
+client.query("select * from products", function(err, result ){
+    console.log(err)
+    console.log("Query result:", result)
+})
+client.query("select * from unnest(enum_range(null::products_type))", function(err, result ){
+    console.log(err)
+    console.log(result)
+})
 
 let app = express();
 
@@ -33,7 +54,7 @@ for (let folder of directories_vector){
 
 // compile all scss into css
 function compileScss (scssPath, cssPath){
-    console.log("CSS: ", cssPath);
+    // console.log("CSS: ", cssPath);
     if (!cssPath){
         let filePath=path.basename(scssPath);
         let fileName = filePath.split(".")[0]
@@ -67,7 +88,7 @@ for( let fileName of dirVector ){
 
 
 fs.watch(obGlobal.scssDir, function(event, fileName){
-    console.log(event, fileName);
+    // console.log(event, fileName);
     if (event==="change" || event==="rename"){
         let fullPath=path.join(obGlobal.scssDir, fileName);
         if (fs.existsSync(fullPath)){
@@ -86,7 +107,7 @@ function initErrors(){
     for (let error of obGlobal.obErrors.info_errors){
         error.image=path.join(obGlobal.obErrors.default_path, error.image)
     }
-    console.log(obGlobal.obErrors)
+    // console.log(obGlobal.obErrors)
 
 }
 function showError(res, identifier, title, text, image){
@@ -136,7 +157,7 @@ function initImages(){
         image.medium_file=path.join("/", obGlobal.obImages.gallery_path, "medium", fileName+".webp");
         image.file=path.join("/", obGlobal.obImages.gallery_path, image.file);
     }
-    console.log(obGlobal.obImages);
+    // console.log(obGlobal.obImages);
 }
 initImages();
 
@@ -161,6 +182,28 @@ app.get("/favicon.ico", function(req, res){
     res.sendFile(path.join(__dirname, "resource/images/favicon/favicon.ico"));
 })
 
+app.get("/products", function(req, res){
+    console.log(req.query)
+    let queryCondition=""; // TO DO where din parametri
+
+    let queryOptions= "select * from unnest(enum_range(null::tea_type))"
+    client.query(queryOptions, function(err, optionsResult){
+        console.log(optionsResult)
+
+        let queryProducts="select * from products" + queryCondition
+        client.query(queryProducts, function(err, rez){
+            if (err){
+                console.log(err);
+                showError(res, 2);
+            }
+            else{
+                console.log(rez.rows);
+                res.render("pages/products", {products: rez.rows, options:optionsResult.rows})
+            }
+        })
+    });
+})
+
 app.get(/^\/resource\/[a-zA-Z0-9_\/]*$/, function(req, res){
     showError(res, 403);
 })
@@ -182,7 +225,7 @@ app.get("/*", function(req, res){
                 }
             }
             else{
-                console.log(renderResult);
+                // console.log(renderResult);
                 res.send(renderResult);
             }
         });

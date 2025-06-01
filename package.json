@@ -34,6 +34,7 @@
   "dependencies": {
     "bootstrap": "^5.3.6",
     "ejs": "^3.1.10",
+    "pg": "^8.16.0",
     "sass": "^1.87.0",
     "sharp": "^0.34.1",
     "xpress": "^2.4.6"
