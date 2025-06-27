@@ -19,9 +19,15 @@
                 </a></li>
 
             <li><a href="/gallery">Gallery</a></li>
+
             <li><a href="/products">Products</a><ul>
-                <li><a href="/products?type=tea">Teas</a></li>
-                <li><a href="/products?type=accessory">Accessories</a></li>
+                <% if (locals && locals.productTypes) { %>
+                    <% locals.productTypes.forEach(type => { %>
+                        <li><a href="/products?type=<%= type %>"><%= type.charAt(0).toUpperCase() + type.slice(1) %></a></li>
+                    <% }) %>
+                <% } else { %>
+                    <li><em>No types loaded</em></li>
+                <% } %>
             </ul></li>
 
             <li><a href="/home#services">Services</a><ul>

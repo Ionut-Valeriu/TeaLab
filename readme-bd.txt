@@ -17,6 +17,6 @@ Nu rulati fisierul sql cu psql deoarece veti avea probleme la diacritice. Motivu
  
 După ce ați creat tabelul, creati un utilizator nou cu comanda:
 CREATE USER username1 WITH ENCRYPTED PASSWORD 'password1';
-GRANT ALL PRIVILEGES ON DATABASE TeaLab TO username1 ;
+GRANT ALL PRIVILEGES ON DATABASE "TeaLab" TO username1 ;
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO username1;
 GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO username1;

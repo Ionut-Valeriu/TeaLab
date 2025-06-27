@@ -1,98 +1,244 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!--Metas-->
-    <meta name="keywords" content="tea, teas, teahouse, tea delivery, relaxation, warm atmosphere, tea subscriptions, tealab, TeaLab">
-    <meta name="description" content="Discover a cozy tea house offering a curated selection of premium teas, handcrafted accessories, and immersive tasting experiences. Enjoy expertly brewed teas, explore our collection, and join exclusive tea workshops and events.">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <!--Metas-->
+        <meta name="keywords" content="tea, teas, teahouse, tea delivery, relaxation, warm atmosphere, tea subscriptions, tealab, TeaLab">
+        <meta name="description" content="Discover a cozy tea house offering a curated selection of premium teas, handcrafted accessories, and immersive tasting experiences. Enjoy expertly brewed teas, explore our collection, and join exclusive tea workshops and events.">
 
-    <%- include("../fragments/head.ejs") %>
+        <%- include("../fragments/head.ejs") %>
 
-    <!--Scripts-->
-    <script type="text/javascript" src=/resource/js/products.js></script>
-    <script type="text/javascript" src=/resource/js/products_cart.js></script>
+        <!--Scripts-->
+        <script type="text/javascript" src=/resource/js/products.js></script>
+        <script type="text/javascript" src=/resource/js/products_cart.js></script>
 
-    <!--Title-->
-    <title>TeaLab Products</title>
-</head>
-<body>
-
-
-<%- include("../fragments/header.ejs")%>
+        <!--Title-->
+        <title>TeaLab Products</title>
+    </head>
+    <body>
 
 
-
-<main>
-
-    <label> Name: <input type="text" id="inp-name"></label>
-    <!--<label> Maxim calories: <input type="number" id="inp-calories" value="10000"></label>-->
-    <div> Quantity:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
-        <p><label>Small (quantity &lt; 25)
-                <input id="i_rad1"  name="gr_rad" value="0:25" type="radio"/>
-            </label></p>
-        <p><label>Medium (25 &le; quantity &lt; 50)
-                <input id="i_rad2"  name="gr_rad" value="25:50" type="radio"/>
-            </label>
-        <p><label>Big (50 &le; quantity)
-                <input id="i_rad3" name="gr_rad" value="50:1000000000" type="radio"/>
-            </label>
-        <p><label>All
-                <input id="i_rad4" checked name="gr_rad" value="all" type="radio"/>
-            </label>
-    </div>
+    <%- include("../fragments/header.ejs")%>
 
 
-    <label> Minimum price: <input type="range" id="inp-price" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
-    <label>Simple select:
-        <select id="inp-category">
-            <option id="sel-all" selected value="all">all</option>
-            <% for (let opt of locals.options) { %>
-                <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
-            <% } %>
-        </select>
-    </label>
 
-    <p>
-        <button class="c1 c2 c3" id="filtering">Filter</button>
+    <main>
 
-        <button id="reset">Reset</button><br/>
-        <button id="sortAscName">Sort ascending by price and name</button>
-        <button id="sortDescName">Sort descending by price and name</button>
+        <section id="filters">
 
-    </p>
+            <div>
+                <label> Name: <input type="text" id="inp-name"></label>
+            </div>
 
-    <p id="p-sum">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
 
-    <section id="products">
+            <div>
+                <%
+                    let minPrice = Math.min(...products.map(p => parseFloat(p.price)));
+                    let maxPrice = Math.max(...products.map(p => parseFloat(p.price)));
+                %>
 
-        <h2>Products</h2>
-        <div class="grid-products">
-            <% for( let prod of locals.products) { %>
-            <article class="product" >
-                <h3 class="name">Name: <a href="/product/<%-prod.id %>" ><span class="val-name"><%- prod.name%></span></a></h3>
-                <div class="info-prod">
-                    <p class="price">Price: <span class="val-price"><%- prod.price%></span></p>
-                    <p class="quantity">Quantity: <span class="val-quantity"><%- prod.quantity%></span></p>
-                </div>
-                <p class="category">Category:<span class="val-category"><%- prod.category%></span></p>
-                <figure>
-                    <a href="/product/<%-prod.id %>" >
-                        <img src="/resource/<%- prod.image %>" style="width:50%;height:auto;" alt="[imagine <%- prod.name %>]" />
-                    </a>
-                </figure>
-                <label class="select-cart">
-                    Select:<br/>
-                    <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">
+                <label> Minimum price: <%-minPrice%>
+                    <input type="range" id="inp-price" value="<%-maxPrice%>" min="<%-minPrice%>" max="<%-maxPrice%>">
+                    <%-maxPrice%>
+                    <span id="infoRange">( <%-maxPrice%> )</span>
                 </label>
-            </article>
-            <% }%>
-        </div>
-    </section>
-
-</main>
+            </div>
 
 
+            <div>
+                <label for="ingredient-choice">Contains:</label>
+                <input list="tea-ingredients" id="ingredient-choice" name="ingredient-choice" />
+                <datalist id="tea-ingredients">
+                    <% for (let ing of locals.ingredients) { %>
+                    <option value="<%- ing %>">
+                        <% } %>
+                </datalist>
+            </div>
 
-<%- include("../fragments/footer.ejs")%>
 
-</body>
-</html>
+            <div> Quantity (g):<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+                <p><label>Small (quantity &lt; 25)
+                        <input id="i_rad1"  name="gr_rad" value="0:25" type="radio"/>
+                    </label></p>
+                <p><label>Medium (25 &le; quantity &lt; 50)
+                        <input id="i_rad2"  name="gr_rad" value="25:50" type="radio"/>
+                    </label>
+                <p><label>Big (50 &le; quantity)
+                        <input id="i_rad3" name="gr_rad" value="50:1000000000" type="radio"/>
+                    </label>
+                <p><label>All
+                        <input id="i_rad4" checked name="gr_rad" value="all" type="radio"/>
+                    </label>
+            </div>
+
+            <div>
+                <label>Without cardiovascular risk: </label>
+                <input type="checkbox" id="inp-risk" />
+            </div>
+
+            <div>
+                <label>Textarea:</label>
+                <textarea id="filter-textarea" rows="3" cols="40" placeholder="Type keywords..."></textarea>
+            </div>
+
+            <div>
+                <label> Simple select:
+                    <select id="inp-category">
+                        <option id="sel-all" selected value="all">all</option>
+                        <% for (let opt of locals.options) { %>
+                            <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                        <% } %>
+                    </select>
+                </label>
+            </div>
+
+            <div>
+                <label for="select-origin">Tea origin:</label><br>
+                <select id="select-origin" multiple>
+                    <% for (let org of locals.origins) { %>
+                        <option value="<%-org%>"><%-org%></option>
+                    <% } %>
+                </select>
+            </div>
+
+            <div>
+                <label>Ingredients:</label><br>
+                <% for (let ing of locals.ingredients) { %>
+                    <div class="ingredients-filter">
+                        <input type="checkbox" id="chk-<%- ing %>" name="ingredients-check" value="<%- ing %>">
+                        <label for="chk-<%- ing %>"><%- ing %></label>
+
+                        <input type="radio" name="radio-<%- ing %>" id="yes-radio-<%- ing %>" value="yes" checked>
+                        <label>have</label>
+
+                        <input type="radio" name="radio-<%- ing %>" id="no-radio-<%- ing %>" value="no">
+                        <label>don't have</label>
+                    </div>
+                <% } %>
+            </div>
+
+
+        </section>
+
+
+
+
+
+        <p>
+            <button class="c1 c2 c3" id="filtering">Filter</button>
+
+            <button id="reset">Reset</button><br/>
+            <button id="sortAscName">Sort ascending by price and name</button>
+            <button id="sortDescName">Sort descending by price and name</button>
+
+        </p>
+
+        <p id="p-sum">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+
+
+
+
+        <section id="products">
+
+            <h2>Products</h2>
+            <div class="grid-products">
+                <% for( let prod of locals.products) { %>
+                <article class="product <%-prod.product_type%>">
+                    <h3 class="name">Name: <a href="/product/<%-prod.id %>" ><span class="val-name"><%- prod.name%></span></a></h3>
+                    <div class="grid-element">
+                        <div class="column1">
+                            <!--image-->
+                            <% if (prod.image != null){ %>
+                            <figure>
+                                <a href="/product/<%-prod.id %>" >
+                                    <img src="/resource/<%- prod.image %>" alt="[imagine <%- prod.name %>]" />
+                                </a>
+                            </figure>
+                            <% } %>
+
+
+
+                            <!--numeric characteristic-->
+                            <p class="charact">Price: <span class="val val-price"><%- prod.price%></span></p>
+                            <p class="quantity">Quantity: <span class="val val-quantity"><%- prod.quantity%></span></p>
+
+
+                            <!--single value string characteristic-->
+                            <p class="charact">Origin: <span class="val val-origin"><%- prod.origin%></span></p>
+
+
+
+
+                            <!--multiple values string characteristic-->
+                            <% if (prod.ingrediente != null) { %>
+                                <p class="charact">Ingredients: </p>
+                                <% for (let ing of prod.ingrediente) { %>
+                                    <span class="val val-ingredient"><%- ing%></span>
+                            <% } } %>
+
+
+
+                            <!--date characteristic-->
+                            <p class="charact">Date added:
+                            <span class="val val-date">
+                                <%
+                                if (prod.add_date != null){
+                                    const date = new Date(prod.add_date);
+                                    const daysOfWeekRo = ["Duminica", "Luni", "Marti", "Miercuri", "Joi", "Vineri", "Sambata"];
+                                    const monthsRo = [
+                                        "Ianuarie", "Februarie", "Martie", "Aprilie", "Mai", "Iunie",
+                                        "Iulie", "August", "Septembrie", "Octombrie", "Noiembrie", "Decembrie"
+                                    ];
+                                    const day = date.getDate();
+                                    const monthName = monthsRo[date.getMonth()];
+                                    const year = date.getFullYear();
+                                    const dayOfWeek = daysOfWeekRo[date.getDay()];
+                                    const formattedDateRo = `${day} ${monthName} ${year} [${dayOfWeek}]`;
+                                %> <%= formattedDateRo %> <%
+                                } else {
+                                %> N/A <%
+                                }
+                                %>
+                            </span> </p>
+
+
+
+                            <!--boolean characteristic-->
+                            <p class="charact">Cardiovascular risk:
+                                <span class="val val-risk">
+                                    <%if (prod.cardiovascular_risk != null){
+                                        if (prod.cardiovascular_risk == true) {%>
+                                        YES
+                                    <% } else { %>NO
+                                    <% } } else { %> N/A <% } %>
+                                </span>
+                            </p>
+
+                        </div> <div class="column2 info-prod">
+                            <!--Category-->
+                            <p class="charact">Category: <span class="val val-category"><%- prod.product_type %></span></p>
+                            <p class="charact">Subcategory: <span class="val val-sub"><%- prod.category %></span></p>
+
+                            <p class="charact">Description: <span class="val val-desc"><%- prod.description %></span></p>
+
+                            <p class="charact">ID<span class="val val-id">artc-<%-prod.id%></span></p>
+                        </div>
+                    </div>
+
+
+    <!--                <label class="select-cart">-->
+    <!--                    Select:<br/>-->
+    <!--                    <input type="checkbox" class="select-cos" value="<%-prod.id %>" autocomplete="off">-->
+    <!--                </label>-->
+                </article>
+                <% } %>
+            </div>
+        </section>
+
+    </main>
+
+
+
+    <%- include("../fragments/footer.ejs")%>
+
+    </body>
+    </html>

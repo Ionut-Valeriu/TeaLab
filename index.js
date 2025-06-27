@@ -42,8 +42,18 @@ let obGlobal={
     obImages:null,
     scssDir: path.join(__dirname,"resource/scss"),
     cssDir: path.join(__dirname,"resource/css"),
-    backupDir: path.join(__dirname,"resource/backup")
+    backupDir: path.join(__dirname,"resource/backup"),
+    productTypes:null
 }
+
+client.query("select * from unnest(enum_range(null::products_type))", function(err, result) {
+    if (err) {
+        console.log("Error fetching product types:", err);
+    } else {
+        obGlobal.productTypes = result.rows.map(row => row.unnest);
+        console.log("Loaded header product types:", obGlobal.productTypes);
+    }
+});
 
 let directories_vector = ["temp", "temp1", "backup"]
 for (let folder of directories_vector){
@@ -161,6 +171,11 @@ function initImages(){
 }
 initImages();
 
+app.use((req, res, next) => {
+    res.locals.productTypes = obGlobal.productTypes;
+    next();
+});
+
 // static directories
 app.use("/resource", express.static(path.join(__dirname, "resource")))
 app.use("/node_modules", express.static(path.join(__dirname, "node_modules")))
@@ -186,7 +201,7 @@ app.get("/products", function(req, res){
     console.log(req.query)
     let queryCondition=""; // TO DO where din parametri
 
-    let queryOptions= "select * from unnest(enum_range(null::tea_type))"
+    let queryOptions= "select * from unnest(enum_range(null::products_type))"
     client.query(queryOptions, function(err, optionsResult){
         console.log(optionsResult)
 
@@ -197,8 +212,29 @@ app.get("/products", function(req, res){
                 showError(res, 2);
             }
             else{
+                let allIngredients = new Set();
+                let allOrigins = new Set();
+
+                rez.rows.forEach(product => {
+                    if (Array.isArray(product.ingrediente)) {
+                        product.ingrediente.forEach(ing => allIngredients.add(ing.trim()));
+                    }
+                });
+
+                rez.rows.forEach(product => {
+                    allOrigins.add(product.origin.trim());
+                });
+
                 console.log(rez.rows);
-                res.render("pages/products", {products: rez.rows, options:optionsResult.rows})
+                console.log(allIngredients);
+                console.log(allOrigins);
+
+                res.render("pages/products", {
+                    products: rez.rows,
+                    options:optionsResult.rows,
+                    ingredients: Array.from(allIngredients),
+                    origins: Array.from(allOrigins)
+                })
             }
         })
     });
